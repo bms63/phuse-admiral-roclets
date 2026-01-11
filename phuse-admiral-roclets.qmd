@@ -11,7 +11,11 @@ library(dplyr)
 library(cli)
 library(glue)
 # Due on February 10th
-# Presentation on Monday, March 17th at 1:30 in Oceans 11
+# OS11: Time To Roclet! 
+# Wednesday March 25 
+# 2:00 - 2:30
+# Sabine Room
+# Paper and Presentation due on Monday 9 February
 ```
 
 
@@ -80,19 +84,9 @@ function.
 
 The default way a package
 displays examples is 
-```{r, error = TRUE, eval = FALSE}
-# Check inputs using base R stop()
-bmi <- function(hgt, wgt) {
-  if (!is.numeric(hgt)) {
-    stop("The hgt argument must be numeric.")
-  }
-  if (!is.numeric(wgt)) {
-    stop("The wgt argument must be numeric.")
-  }
 
-  wgt / (hgt / 100)^2
-}
-bmi(hgt = hgt_good, wgt = wgt_good)
+```{r, echo = FALSE, eval = FALSE}
+# https://dplyr.tidyverse.org/reference/arrange.html#ref-examples
 ```
 
 The `bmi()` function is still producing the same results. 
