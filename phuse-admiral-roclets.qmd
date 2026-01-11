@@ -1,0 +1,411 @@
+---
+title: "Time to Roclet! admiral’s use of custom roclets to enhance and extend examples in function documentation."
+author: "Ben Straub (GSK, Philadelphia, United States) <br> Daniel D. Sjoberg (Genentech, South San Francisco, United States)"
+format: html
+editor: source
+---
+
+```{r, echo = FALSE, message = FALSE}
+library(tibble)
+library(dplyr)
+library(cli)
+library(glue)
+# Due on February 10th
+# Presentation on Monday, March 17th at 1:30 in Oceans 11
+```
+
+
+
+## ABSTRACT
+
+R package function documentation is singular in open source.  Detailed argument definitions coupled with inline examples can help breakdown complicated functions that help solve problems.  In admiral, R package for ADaMs, we have always prided ourselves on top-notch function documentation.  However, as the examples grew for each function the documentation became unwieldy.  Using the roxygen package, a key component of any R package, we extended the roclets to better display and curate the examples.  This presentation/paper will discuss the technical details of how we extended the roclet and how this positively impacted our function examples.
+
+<div style="text-align: center;">
+<img src="xkcd.png" alt="Alt text" width="400px">
+</div>
+
+## INTRODUCTION
+
+To set the stage, we will need to first discuss what is an R package and some of the
+infrastructure behind it.  We will then pivot to discuss packages that help with the
+package development process, i.e. roxygen and then briefly discuss the admiral package.
+
+### R Packages
+
+R packages are fundamental extensions to the R statistical programming language, bundling together code, data, documentation, and tests in a standardized format. They allow users to share and reuse code easily, greatly expanding R's functionality and driving its widespread adoption in data science. Creating an R package typically involves using development packages like devtools and usethis to set up the necessary directory structure. You then add your R functions to the R/ directory, write documentation for them using roxygen2 comments, and declare any dependencies in the DESCRIPTION file. Finally, you generate the documentation, test your package, and can then build and install it for use or share it with others.
+
+### roxygen2 package
+
+The roxygen2 R package simplifies the process of documenting R code within packages. It allows developers to write documentation directly alongside their function definitions using special comments, known as roxygen comments, which start with #'. This approach keeps code and documentation co-located, making updates more efficient. roxygen2 then processes these comments to automatically generate .Rd files, which are the standard R documentation files, and also manages the NAMESPACE file and the Collate field in DESCRIPTION. This automated generation eliminates the need to manually write complex .Rd files, significantly streamlining package development. In essence, roxygen2 transforms in-source comments into user-friendly help documentation accessible via R's ? function.Roxygen2 is an R package designed to streamline the creation of documentation for other R packages. It enables developers to write documentation directly within their R source code using special #' comments, keeping the code and its explanation together. Roxygen2 then automatically processes these in-source comments to generate the necessary .Rd files, which are R's standard documentation format. Beyond .Rd files, it also helps manage the NAMESPACE file and other package metadata, simplifying the overall package development workflow. This system dramatically reduces the effort required for documentation, making it easier for users to understand and utilize package functions.
+
+```{r, echo = TRUE, eval = FALSE}
+#' Add two numbers together.
+#'
+#' This function takes two numeric inputs and returns their sum.
+#'
+#' @param x A numeric value, the first number.
+#' @param y A numeric value, the second number.
+#' @return The sum of `x` and `y`.
+#' @examples
+#' add_numbers(5, 3)
+#' add_numbers(10, -2)
+add_numbers <- function(x, y) {
+  x + y
+}
+```
+
+* #' Add two numbers together - serves as the title.
+* #' This function takes two numeric inputs and returns their sum -  is the description.
+* @param x A numeric value, the first number - describes the first parameter, x.
+* @param y A numeric value, the second number - describes the second parameter, y.
+* @return The sum of \x` and `y`.` - describes what the function returns.
+* @examples provides executable R code demonstrating how to use the function
+
+### admiral package
+
+The ADMIRAL R package is an open-source, modularized toolbox specifically designed for creating Analysis Data Model (ADaM) datasets within the R environment. These ADaM datasets are a mandatory component for regulatory submissions, such as New Drug Applications, to health authorities like the FDA. ADMIRAL provides a collection of reusable R functions that enable the programming community to develop CDISC-compliant ADaM datasets in a standardized and efficient manner. It promotes a "building block" approach, allowing users to combine modular functions for deriving new variables and parameters, thereby minimizing redundancy and enhancing reproducibility. The package is part of the broader Pharmaverse initiative, fostering collaboration among pharmaceutical companies and streamlining the use of R for clinical trial data programming.
+
+## R PACKAGE DOCUMENTATION
+
+A lot of R packages have amazing documentation with great examples. However, as
+a package grows in the number of functions the documentation will also grow. If
+you package's function is developed in a way that the functions are flexible, then
+you will need to showcase this flexibility with examples. To introduce this problem
+with examples, we will first use the dplyr R package looking at the `arrange()` 
+function.
+
+<div style="text-align: center;">
+<img src="dplyr_ex.png" alt="Alt text" width="600px">
+</div>
+
+The default way a package
+displays examples is 
+```{r, error = TRUE, eval = FALSE}
+# Check inputs using base R stop()
+bmi <- function(hgt, wgt) {
+  if (!is.numeric(hgt)) {
+    stop("The hgt argument must be numeric.")
+  }
+  if (!is.numeric(wgt)) {
+    stop("The wgt argument must be numeric.")
+  }
+
+  wgt / (hgt / 100)^2
+}
+bmi(hgt = hgt_good, wgt = wgt_good)
+```
+
+The `bmi()` function is still producing the same results. 
+Now let's try it with that pesky character data.
+
+```{r, error = TRUE, eval = FALSE}
+bmi(hgt = hgt_bad, wgt = wgt_bad)
+```
+
+Fabulous! 
+Our updated function provides us with a better message around our contrived issue. 
+But is all that information in the message helpful and does need it need to be all in red? 
+Using the `cli` R package we can improve our messaging even more!
+
+## ADMIRAL DOCUMENTATION
+
+The `cli` R package is a tool designed to help R developers create attractive and expressive command-line interfaces. It provides a suite of functions to enhance console output, making it more visually appealing and user-friendly. 
+Key features of the cli package include:
+
+* *Text Formatting*: It supports various styles, including color, bold, and underline, allowing developers to highlight important messages.
+* *Progress Bars and Spinners*: These are included to indicate the progress of time-consuming tasks, improving user experience during long computations.
+* *Boxes and Lists*: The package allows for the addition of borders and lists to format text in an organized way, making it easier to read and comprehend.
+* *Unicode Symbols*: It supports a wide range of Unicode symbols, which can be used to add icons or symbols to command output.
+
+Now we have even power with the `cli` package to improve our messaging! 
+We will make use of the `cli_abort()` function to create a custom error message that is more informative to the user. 
+
+```{r, error = TRUE, eval = FALSE}
+# check inputs using cli::cli_abort()
+bmi <- function(hgt, wgt) {
+  if (!is.numeric(hgt)) {
+    cli::cli_abort("The hgt argument must be numeric.")
+  }
+  if (!is.numeric(wgt)) {
+    cli::cli_abort("The wgt argument must be numeric.")
+  }
+
+  wgt / (hgt / 100)^2
+}
+bmi(hgt = hgt_good, wgt = wgt_good)
+```
+
+Looking fabulous! 
+Now let's break it.
+
+```{r, error =TRUE, eval = FALSE}
+bmi(hgt = hgt_good, wgt = wgt_bad)
+```
+
+The message is much clearer to the user that the error is from the `bmi()` function.
+Additionally, the `cli` packages provides a `rlang::last_trace()` link, so we can easily delve into the details if needed. 
+But we can do even better if we make use of the `glue` R package!
+
+## GLUE R PACKAGE IS HERE TO HELP!
+
+The `glue` package in R is designed to efficiently interpolate and paste together strings. 
+Its primary abilities include:
+
+* *String Interpolation*: glue allows you to embed R expressions inside curly braces {} within a string. The expressions are evaluated, and their results are interpolated into the string. This makes it highly convenient for dynamically generating strings with variable content.
+* *Improved Readability*: The use of curly-brace syntax within strings can lead to cleaner and more readable code compared to traditional paste or sprintf functions, especially when dealing with a mixture of text and variable data.
+* *Parameter Passing*: You can pass additional named arguments to the glue() function, which can be used within the string expressions. This feature is useful for keeping the code concise while providing custom evaluations.
+* *Custom Separators*: The package allows specification of custom separators and collapse arguments, offering flexibility similar to paste() functions.
+* *Integration with Tidyverse*: The syntax and design of glue make it a good fit for use alongside other tidyverse packages, enhancing its functionality in data manipulation and generation tasks.
+
+We can use `glue` to help the arguments causing issues to __pop out__ to the user in our messaging. 
+For example, we will use the `glue` syntax `{.arg arg_name}` to achieve this as seen below.
+
+```{r, error = TRUE, eval = FALSE}
+# Use glue syntax to help make stuff pop!
+bmi <- function(hgt, wgt) {
+  if (!is.numeric(hgt)) {
+    cli::cli_abort("The {.arg hgt} argument must be numeric.")
+  }
+  if (!is.numeric(wgt)) {
+    cli::cli_abort("The {.arg wgt} argument must be numeric.")
+  }
+
+  wgt / (hgt / 100)^2
+}
+
+bmi(hgt = hgt_good, wgt = wgt_good)
+```
+
+Okay! Still working well so let's break it again.
+
+```{r, error =TRUE, eval = FALSE}
+bmi(hgt = hgt_good, wgt = wgt_bad)
+```
+
+We now have backticks surrounding the argument, which helps surface a possible malignant culprit.
+Unfortunately, we are repeating ourselves inside our function with the two numeric checks. 
+Let's add a `check_numeric()` function that makes use of `arg_name`.
+
+```{r, error = TRUE, eval = FALSE}
+# Adding a `check_numeric()` function ------------------------------------------
+check_numeric <- function(x, arg_name = rlang::caller_arg(x)) {
+  if (!is.numeric(x)) {
+    cli::cli_abort("The {.arg {arg_name}} argument must be numeric.")
+  }
+  invisible(x)
+}
+
+bmi <- function(hgt, wgt) {
+  check_numeric(hgt)
+  check_numeric(wgt)
+
+  wgt / (hgt / 100)^2
+}
+```
+
+```{r, eval = FALSE}
+bmi(hgt = hgt_good, wgt = wgt_good)
+```
+
+Still working!
+
+```{r, error = TRUE, eval = FALSE}
+bmi(hgt = hgt_bad, wgt = wgt_bad)
+```
+
+Bah! We made our code less repetitive, but now our message to the user doesn't make a lot of sense as they might never see `check_numeric()` if they use `bmi()` from a package. 
+We can use the available arguments in `cli_abort()` to specify the environment form which the user called the function, i.e. `call = parent.frame()`.
+By setting the default to `parent.frame()` the calling frame that will be used in the messaging will correctly reflect the function the user called.
+
+
+We have also add the argument `arg_name`.
+This argument is a string naming the argument that `check_numeric()` is checking.
+The default value for this argument is `rlang::caller_arg(x)`, which converts the symbol or argument name passed in `check_numeric(x)` to a string.
+
+```{r, error = TRUE, eval = FALSE}
+# Add `check_numeric(call)` argument 
+check_numeric <- function(x, 
+                          arg_name = rlang::caller_arg(x), 
+                          call = parent.frame()) {
+  if (!is.numeric(x)) {
+    cli::cli_abort("The {.arg {arg_name}} argument must be numeric.", call = call)
+  }
+  invisible(x)
+}
+
+bmi <- function(hgt, wgt) {
+  check_numeric(hgt)
+  check_numeric(wgt)
+
+  wgt / (hgt / 100)^2
+}
+
+bmi(hgt = hgt_good, wgt = wgt_good)
+```
+
+Our updates have no impact to the function when working properly.
+
+```{r, error = TRUE, eval = FALSE}
+bmi(hgt = hgt_bad, wgt = wgt_bad)
+```
+
+Phew! We are back in action and are error message is looking succinct and informative. ...but we can keep going! 
+How about we add a `check_positive()` function that checks that your data are all positive and add in a list of items using `x` for error and `i` for information to highlight key information to your users. 
+
+```{r, eval = FALSE}
+# Add `check_positive()` with `c("x" = , "i" = )`
+check_positive <- function(x, arg_name = rlang::caller_arg(x), call = parent.frame()) {
+  if (any(x <= 0)) {
+    cli::cli_abort(
+      c(
+        "x" = "All values in the vector passed in the {.arg {arg_name}} argument must be postive.",
+        "i" = "Consider {.emph checking your data} before attempting to calculate BMI."
+      ),
+      call = call
+    )
+  }
+  invisible(x)
+}
+
+bmi <- function(hgt, wgt) {
+  check_numeric(hgt)
+  check_numeric(wgt)
+  check_positive(hgt)
+  check_positive(wgt)
+
+  wgt / (hgt / 100)^2
+}
+```
+
+```{r, eval = FALSE}
+bmi(hgt = hgt_good, wgt = wgt_good)
+```
+
+Again, no impacts when our function is working properly.
+
+```{r, error = TRUE, eval = FALSE}
+bmi(hgt = hgt_good * -1, wgt = wgt_good)
+```
+
+Alright! We have made, in our opinion, a much clearer error message to our user.
+
+We did the following to improve our messaging of the `bmi()` function:
+
+  * made it clear which argument is at fault
+  * made it clear which function was at fault
+  * added checks on user input data and provided helpful messaging
+  * added emphasis and backticks to bring arguments and functions names to the forefront
+  * added a easy way to access the stack for additional details. 
+  
+`bmi()` is ready for the big leagues!
+  
+## ADMIRAL EXAMPLE
+
+The `admiral` R package for working with ADaM datasets began in earnest in 2021. 
+A core design principal was to have informative messaging to our users.
+We made use of a lot of base R messaging techniques, which was helpful, but always left something to be desired.
+In early 2024, we made a concerted effort to utilize more heavily the `cli` and `glue` R packages to give even better messaging to the users. 
+This adoption had the ancillary benefit of us adopting snapshot testing, which we will discuss in the last section.
+
+The `admiral` R package has a helper package `admiraldev` that is only utilized by `admiral` developers. 
+Within the `admiraldev` package we have a series of functions that check user inputs and provides appropriate error messaging if something is amiss starting with `assert_`.
+Similar to the `check_` functions that we made for our `bmi()` function.
+Below we have the `assert_s3_class` from `admiraldev` which checks if the class of the argument is of the S3 class, i.e. think dataframe/tibble.
+
+Readers of the simple example using the `bmi()` function will notice many similarities:
+
+```{r, eval = FALSE}
+assert_s3_class <- function(arg, 
+                            cls,
+                            optional = FALSE,
+                            arg_name = rlang::caller_arg(arg),
+                            message = NULL,
+                            call = parent.frame()) {
+  # if argument is optional and the value is NULL, exit function
+  if (is.null(arg) && optional) {
+    return(invisible(arg))
+  }
+
+  # use default message if one not provided in the `message` argument
+  message <-
+    ifelse(
+      is.null(message),
+      "Argument {.arg {arg_name}} must be class {.cls {cls}}, but is {.obj_type_friendly {arg}}.",
+      message
+    )
+
+  # print error if input does not match specified class
+  if (!inherits(arg, cls)) {
+    cli::cli_abort(message = messagge, call = call)
+  }
+
+  invisible(arg)
+}
+```
+
+Please take a look at each section of the `assert_s3_class()` function:
+
+  * observe the use of `rlang::caller_arg(arg)` which converts the symbol or argument name passed in function to a string.
+  * Use of `call = parent.frame()` to to specify the environment form which the user called the function, i.e. `call = parent.frame()`. By setting the default to `parent.frame()` the calling frame that will be used in the messaging will correctly reflect the function the user called. 
+  * Use of `cli::cli_abort()` for the error message.
+  * Use of `glue` snytax to add emphasis to sections of the message
+
+The use of the above, is identical to what we discussed in the `bmi()` function example.
+For this function, a nice touch is that the developer can also further customize the message if the standard message from the `assert_s3_class()` does not meet their needs.
+Most of the `assert_` functions within `admiraldev` follow similar code pattern, i.e. checking an argument and if an issue/error arises providing a succinct yet informative message. 
+We encourage readers to check out the `assert_` functions in the `admiraldev` GitHub Repo for additional examples of using `cli` and `glue` R packages.
+
+## QUALITY OF LIFE IMPROVEMENTS
+
+### Snapshot Testing
+
+Snapshot testing involves capturing output from a function or process at a point in time and later checking to see if this output matches the expected value.
+Snapshot unit tests are a great way to test error messaging, particularly those using `cli::cli_abort()` because it will capture both the error message and the user calling function in the snapshot.
+The testthat package provides snapshot testing capabilities, allowing you to capture current outputs and compare them against stored snapshots during tests.
+If outputs change unexpectedly, the differences are highlighted, prompting an interactive review. 
+As mentioned, this was an ancillary benefit to `admiral`'s unit tests as we made use of more `cli` packages with some additional work not discussed.
+
+### Standalone
+
+Writing function list `check_numeric()` are incredibly useful when writing a package.
+But it could be daunting to write a suite of functions to check all scenarios.
+Posit, PBC has created a stand alone script with many useful checks.
+You can add these functions to your package by running `usethis::use_standalone("r-lib/rlang", file = "standalone-types-check.R")`; a copy of the script will be placed in your active repository.
+Additional check functions are available with `usethis::use_standalone("insightsengineering/standalone", file = "standalone-checks.R")`. 
+`admiraldev` covers a lot of these cases in the standalone scripts, but again we highly recommend the standalone scripts over re-creating already exisiting tools!
+
+## CONCLUSIONS
+
+This paper illustrates the critical role of clear and user-friendly messaging in enhancing software usability, particularly for new users navigating R programming. 
+By leveraging tools such as the `cli` and `glue` packages, developers can craft error and warning messages that are not only informative but also engaging and supportive, as demonstrated through the `bmi()` function examples. 
+The `admiral` package's approach to robust messaging exemplifies best practices, highlighting the importance of improving user communication to prevent confusion and facilitate troubleshooting. 
+Additionally, the integration of snapshot testing and standalone scripts, as discussed in the paper, offers practical ways to maintain message consistency and reduce dependencies within R projects. 
+Collectively, these strategies and tools contribute to a positive user experience, fostering a more productive and less frustrating interaction with software.
+
+## REFERENCES
+
+Error messaging – analysis results datasets onboarding. (n.d.). <https://www.danieldsjoberg.com/ARD-onboarding/05-cli-conditions.html> </br> 
+R-Lib. (n.d.). rlang/R/standalone-types-check.R at main · r-lib/rlang. GitHub. <https://github.com/r-lib/rlang/blob/main/R/standalone-types-check.R> </br>
+Helpers for developing command line interfaces. (n.d.). <https://cli.r-lib.org/index.html> </br>
+Interpreted string literals. (n.d.). <https://glue.tidyverse.org/> </br>
+ADAM in R Asset Library. (n.d.). <https://pharmaverse.github.io/admiral> </br>
+Utility functions and development tools for the Admiral Package Family. (n.d.). <https://pharmaverse.github.io/admiraldev> </br>
+
+## ACKNOWLEDGMENTS
+
+The R open-source community. You all are a special bunch.
+
+## CONTACT INFORMATION
+
+Your comments and questions are valued and encouraged. Contact the authors at: </br>
+Author Name: Daniel Sjoberg </br>
+Company: Genentech </br>
+Email: sjobergd_at_gene.com </br>
+Website: https://www.danieldsjoberg.com/ </br>
+ 
+Author Name: Ben Straub </br>
+Company: GSK </br>
+Email: ben.x.straub_at_gsk.com  </br>
+Website: https://www.linkedin.com/in/ben-straub/ </br>
+
+Brand and product names are trademarks of their respective companies.
