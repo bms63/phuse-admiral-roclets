@@ -1,0 +1,65 @@
+---
+title: "Time to Roclet! admiral’s use of custom roclets to enhance and extend examples in function documentation."
+author:
+  - "Ben Straub (GSK, Philadelphia, United States)"
+  - "Daniel D. Sjoberg (Genentech, South San Francisco, United States)"
+format: revealjs
+editor: source
+---
+
+## Introduction: The Challenge of R Package Documentation
+
+::: incremental
+- R package function documentation is crucial for open source.
+- Detailed argument definitions and inline examples aid understanding complex functions.
+- In `admiral`, top-notch documentation is a priority.
+- **Problem**: As examples grew, documentation became unwieldy and hard to navigate.
+- **Solution**: Extended `roxygen` package's `roclets` to better display and curate examples.
+- This presentation explores the technical details and positive impact on `admiral`'s function examples.
+:::
+
+## R Packages: The Foundation of R Ecosystem
+
+::: incremental
+- R packages bundle code, data, documentation, and tests in a standardized format.
+- They facilitate code sharing and reuse, expanding R's functionality.
+- **Key components**:
+    - R functions in `R/` directory.
+    - Documentation using `roxygen2` comments.
+    - Dependencies in `DESCRIPTION` file.
+- **Development process**:
+    - Utilize `devtools` and `usethis` for setup.
+    - Generate documentation, test, build, and install.
+    - Submission to repositories like CRAN.
+:::
+
+## roxygen2: Streamlining R Documentation
+
+::: incremental
+- The `roxygen2` R package simplifies documentation within R packages.
+- Developers write documentation directly alongside function definitions using `#'` comments.
+- **Benefits**:
+    - Keeps code and documentation co-located, making updates efficient.
+    - Automatically generates `.Rd` files (standard R documentation) from comments.
+    - Manages `NAMESPACE` file and `Collate` field in `DESCRIPTION`.
+- This system significantly reduces effort, enhancing user understanding of functions.
+:::
+
+## Anatomy of Roxygen Comments
+
+Here's a brief example of a function `add_numbers()` with its roxygen documentation:
+
+```r
+#' Add two numbers together.
+#'
+#' This function takes two numeric inputs and returns their sum.
+#'
+#' @param x A numeric value, the first number.
+#' @param y A numeric value, the second number.
+#' @return The sum of `x` and `y`.
+#' @examples
+#' add_numbers(5, 3)
+#' add_numbers(10, -2)
+add_numbers <- function(x, y) {
+  x + y
+}
