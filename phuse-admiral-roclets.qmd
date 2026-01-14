@@ -1,7 +1,7 @@
 ---
 title: "Time to Roclet! admiral’s use of custom roclets to enhance and extend examples in function documentation."
 author: "Ben Straub (GSK, Philadelphia, United States) <br> Daniel D. Sjoberg (Genentech, South San Francisco, United States)"
-format: html
+format: docx
 editor: source
 ---
 
@@ -24,9 +24,7 @@ library(glue)
 
 R package function documentation is singular in open source.  Detailed argument definitions coupled with inline examples can help breakdown complicated functions that help solve problems.  In admiral, R package for ADaMs, we have always prided ourselves on top-notch function documentation.  However, as the examples grew for each function the documentation became unwieldy.  Using the roxygen2 package, a key component of any R package, we were able to extend the roclets to better display and curate the examples.  This presentation/paper will discuss the technical details of how we extended the roclet and how this positively impacted our function examples.
 
-<div style="text-align: center;">
-<img src="rtfm.png" alt="Alt text" width="400px">
-</div>
+![](rtfm.png){width="150px"}
 
 ## INTRODUCTION
 
@@ -149,9 +147,7 @@ function.
 # https://dplyr.tidyverse.org/reference/arrange.html#ref-examples
 ```
 
-<div style="text-align: center;">
-<img src="dplyr_ex.png" alt="Alt text" width="600px">
-</div>
+![](dplyr_ex.png){width="600px"}
 
 The arrange() function has limited arguments, but is very versatile and has several long
 examples. In the screenshot above, the two red arrows on the left are to highlight where 
@@ -171,9 +167,7 @@ a partial date.
 
 ### derive_vars_dt() at 1.2.0
 
-<div style="text-align: center;">
-<img src="admiral_1_2.png" alt="Alt text" width="600px">
-</div>
+![](admiral_1_2.png){width="600px"}
 
 The pattern of red arrows is similar to the dplyr arrange function.  The left side
 two red arrows have comments inserted to show the how the function can be used
@@ -182,9 +176,7 @@ When you click the link it will take you to the top of the examples.
 
 ### derive_vars_dt() at 1.3.0
 
-<div style="text-align: center;">
-<img src="admiral_1_3.png" alt="Alt text" width="600px">
-</div>
+![](admiral_1_3.png){width="600px"}
 
 Now we are cooking! The example for derive_vars_dt() has a title for it followed by
 a detailed description as evidenced by the red arrows on the left side.
@@ -284,21 +276,21 @@ extended roxygen abilities. Note this is a high-level overview and readers are e
 to explore the https://github.com/pharmaverse/admiraldev/blob/main/R/roclet_rdx.R
 for more details. 
 
-@examplesx (marks the beginning of the Examples Section)
+#### @examplesx (marks the beginning of the Examples Section)
 
 **Purpose:** To explicitly mark the beginning of the examples section. It's largely a structural tag and can often be omitted if the first example-related tag is @caption.
 
 **Processing:** The transform_examplesx() function processes custom Roxygen tags like @caption, @info, and @code to generate structured examples. It groups these tags, executes the R code provided by @code (including capturing its output and handling expected conditions), and then combines this information into a single examplex tag for the R documentation, effectively transforming descriptive and executable components into a cohesive example. Crucially, it also cleanses the executed code's output of problematic Unicode characters to prevent LaTeX compilation errors in the final PDF manual.
 
-@caption (Example Title)
+#### @caption (Example Title)
 
 **Purpose:** To provide a descriptive title or caption for a specific example within the examples section.
 
 **How it works:** Each @caption begins a new example block. The text following @caption becomes the title.
 
-**Processing:** transform_examplesx() collects the caption. In the final .Rd output, this becomes a \subsection{} within the main \section{Examples}{}.
+**Processing:** transform_examplesx() collects the caption. In the final .Rd output, this becomes a `\subsection{}` within the main `\section{Examples}{}`.
 
-@info (Example Description)
+#### @info (Example Description)
 
 **Purpose:** To provide additional descriptive text or context for an example, explaining what it demonstrates or any specific considerations.
 
@@ -306,7 +298,7 @@ for more details.
 
 **Processing:** transform_examplesx() appends this text to the contents of the current example block.
 
-@code (Executable Example Code)
+#### @code (Executable Example Code)
 
 **Purpose:** To provide the actual R code for an example. Critically, this code is executed during the R package check process, and its output is included in the documentation.
 
@@ -321,14 +313,13 @@ It also performs string replacements on the output (e.g., str_replace_all("\\u21
 
 The captured code and its output are then formatted and included as part of the example's contents.
 
+Viola! We get a pretty examples with amazing layout like below.
+
+![](admiral_1_3.png){width="600px"}
 
 ## CONCLUSIONS
 
-This paper illustrates the critical role of clear and user-friendly messaging in enhancing software usability, particularly for new users navigating R programming. 
-By leveraging tools such as the `cli` and `glue` packages, developers can craft error and warning messages that are not only informative but also engaging and supportive, as demonstrated through the `bmi()` function examples. 
-The `admiral` package's approach to robust messaging exemplifies best practices, highlighting the importance of improving user communication to prevent confusion and facilitate troubleshooting. 
-Additionally, the integration of snapshot testing and standalone scripts, as discussed in the paper, offers practical ways to maintain message consistency and reduce dependencies within R projects. 
-Collectively, these strategies and tools contribute to a positive user experience, fostering a more productive and less frustrating interaction with software.
+The admiral R package, which specializes in creating Analysis Data Model (ADaM) datasets, encountered a challenge with increasingly unwieldy function documentation as its examples grew in number and complexity. To address this, admiral significantly enhanced its documentation by extending roxygen2's roclets—a core component of R package documentation. The key innovation involved introducing custom roxygen tags: @examplesx, @caption, @info, and @code. This roxygen extension allows for a structured and user-friendly presentation of examples, as seen in the derive_vars_dt() function. Ultimately, this method enables admiral to provide a "Table of Contents" for its examples, allowing users to easily navigate and understand complex function usage, thereby significantly improving the overall user experience and the quality of its function documentation.
 
 ## REFERENCES
 
@@ -357,3 +348,4 @@ Email: ben.x.straub_at_gsk.com  </br>
 Website: https://www.linkedin.com/in/ben-straub/ </br>
 
 Brand and product names are trademarks of their respective companies.
+R
