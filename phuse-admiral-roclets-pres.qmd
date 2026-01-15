@@ -6,9 +6,50 @@ format:
   revealjs:
     code-block-max-height: "400px" # Makes code blocks scrollable if content exceeds this height
     scrollable: true # Enables vertical scrolling for general slide content if it overflows
+    auto-stretch: false
 editor: source
 ---
-## Introduction: The Challenge of R Package Documentation
+
+## Required xkcd comic
+
+:::: {.columns}
+
+::: {.column width="40%"}
+![](rtfm.png) 
+:::
+
+::: {.column width="60%"}
+::: incremental
+* Do you read the manual first? Show of Hands
+* Do you just dive in and read the manual afterwards? Show of Hands
+* I am dive in and read the manual later.  
+:::
+:::
+
+::::
+
+## The next 20 minutes...
+
+::: incremental
+
+* Brief intro to the problem. Hint: documentation
+* Infrastructure behind R package documentation
+* admiral R package and its documentation
+* How admiral extended roxygen2 abilities to solve its problem
+
+:::
+
+## So at the end of 20 minutes...
+
+I hope you walk away with:
+
+::: incremental
+
+* How R documentation is created.
+* How admiral enhanced its documentation to help its users creating ADaMs.
+:::
+
+## Introduction: The Challenge of R Package Documentation {.smaller}
 
 ::: incremental
 - Detailed argument definitions and inline examples aid understanding complex functions.
@@ -18,7 +59,7 @@ editor: source
 - This presentation explores the technical details and positive impact on `admiral`'s function examples.
 :::
 
-## R Packages: The Foundation of R Ecosystem
+## R Packages: The Foundation of the R Ecosystem
 
 ::: incremental
 - R packages bundle code, data, documentation, and tests in a standardized format.
@@ -96,21 +137,96 @@ add_numbers(10, -2)
 }
 ```
 
-## Render on a pkgdown site or help file
+## Don't touch!
 
-![](add_2.png){width="600px"}
+![](dont_touch.png){width="400px"}
+
+* I do not recommend editing these by hand - ever - unless you want pain!
+
+
+## Render in R help file and pkgdown
+
+::: {.r-stack}
+![](add_2.png){.fragment width="650" height="400"}
+
+![](add_2_pkgdown.png){.fragment width="500" height="450"}
+:::
 
 ## dplyr
 
-![](dplyr_ex.png){width="600px"}
+:::: {.columns}
 
-## admiral 1.2
+::: {.column width="60%"}
+![](dplyr_ex.png)
+:::
 
-![](admiral_1_2.png){width="600px"}
+::: {.column width="40%"}
+::: incremental
+* #'s used to delineate new example with explanation
+* Creates a sea of examples
+* Examples are not navigable on right hand side 
+:::
+:::
+
+::::
+
+
+## admiral 1.2.0
+
+:::: {.columns}
+
+::: {.column width="60%"}
+![](admiral_1_2.png)
+:::
+
+::: {.column width="40%"}
+::: incremental
+* #'s used to delineate new example with explanation
+* Creates a sea of examples
+* Examples are not navigable on right hand side 
+:::
+:::
+
+::::
+
 
 ## admiral 1.3
 
-![](admiral_1_3.png){width="600px"}
+:::: {.columns}
+
+::: {.column width="60%"}
+![](admiral_1_3.png)
+:::
+
+::: {.column width="40%"}
+::: incremental
+* A nice linkable title
+* Description of example 
+* Right hand side has navigable example
+:::
+:::
+
+::::
+
+## How was this done?
+
+:::: {.columns}
+
+::: {.column width="60%"}
+![](socery.png)
+:::
+
+::: {.column width="40%"}
+::: incremental
+* roxygen2 package allows for extensions
+* admiraldev houses the function
+* fun!
+:::
+:::
+
+::::
+
+
 
 ## Extending roxygen
 
@@ -170,5 +286,53 @@ This example shows that the \code{letter} argument does not affect the output.
 #> [1] 42}\if{html}{\out{</div>}}}}
 
 
-
 ```
+
+## @examplesx - The Examples Section Initiator {.smaller}
+
+**Purpose:** Marks the beginning of the entire examples section in Roxygen documentation, serving as a structural tag.
+
+**How it Works:** Signals the transform_examplesx() function to start processing custom Roxygen tags for examples.
+
+**Processing:** The transform_examplesx() function orchestrates the grouping of @caption, @info, and @code tags. It executes R code from @code, captures output, handles expected conditions, and combines these into a cohesive examplex tag. It also cleanses output of problematic Unicode characters to prevent LaTeX errors.
+
+## @caption - Example Title {.smaller}
+
+**Purpose:** Provides a descriptive title or caption for an individual example within the examples section.
+
+**How it Works:** Each @caption tag initiates a new example block, with the text following it becoming the title.
+
+**Processing:** The transform_examplesx() function collects the caption text. In the final .Rd documentation output, this caption is formatted as a \subsection{} within the main \section{Examples}{}.
+
+## @info - Example Description {.smaller}
+
+**Purpose:** Offers additional descriptive text or context for an example, explaining its demonstration or specific considerations.
+
+**How it Works:** It is placed after an @caption and before an @code tag, containing explanatory text for that specific example.
+
+**Processing:** The transform_examplesx() function appends this descriptive text to the current example block's contents, integrating it into the overall example documentation.
+
+##  @code - Executable Example Code {.smaller}
+
+**Purpose:** Provides the actual R code for an example, which is executed during the R package check, and its output is included in the documentation.
+
+**How it Works:** The R code follows the @code tag. It can include an optional [expected_cnds = "warning"] argument to specify anticipated conditions like warnings or errors without causing check failures.
+
+**Processing:** transform_examplesx() extracts the code and any expected_cnds options, then calls execute_example(). This function runs the code in a controlled environment, captures console output, messages, warnings, and errors. Unexpected conditions (not listed in expected_cnds) lead to an error and an R CMD check failure, ensuring examples are functional and correct. The captured code and its output are then formatted and integrated into the example's contents.
+
+## Conclusion {.smaller}
+
+* The admiral R package faced challenges with unwieldy function documentation due to complex and numerous examples.
+
+* To address this, admiral extended roxygen2's roclets by introducing custom Roxygen tags: @examplesx, @caption, @info, and @code.
+
+* These custom tags enable a structured, user-friendly presentation of examples, providing scaffolding for complex function usage.
+
+* This innovation significantly improved the overall user experience and the quality of admiral's function documentation.
+
+## Question
+
+What is the name of the documentation package that could be extended to address admiral's needs?
+
+
+
