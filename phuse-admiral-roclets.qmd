@@ -1,7 +1,7 @@
 ---
 title: "Time to Roclet! admiral’s use of custom roclets to enhance and extend examples in function documentation."
 author: "Ben Straub (GSK) <br> Edoardo Mancini (Roche)"
-format: docx
+format: html
 editor: source
 ---
 

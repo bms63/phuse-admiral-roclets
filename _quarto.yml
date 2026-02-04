@@ -1,0 +1,26 @@
+project:
+  type: website
+
+website:
+  title: "phuse-admiral-roclets"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: phuse-admiral-roclets.qmd
+        text: Paper
+      - href: phuse-admiral-roclets-pres.qmd
+        text: Presentation
+  page-footer: 
+    left: "Created using [Quarto](https://quarto.org/docs/websites/)."
+    right: 
+      - icon: github
+        href: https://github.com/bms63/phuse-admiral-roclets
+
+format:
+  html:
+    light: flatly
+    dark: darkly
+    toc: true
+
+

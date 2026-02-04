@@ -22,7 +22,7 @@ editor: source
 ::: incremental
 * Do you read the manual first? Show of Hands
 * Do you just dive in and read the manual afterwards? Show of Hands
-* I am dive in and read the manual later.  
+* I am a dive in and then read the manual later.  
 :::
 :::
 

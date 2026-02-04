@@ -6,3 +6,6 @@ phuse-admiral-roclets_files/
 phuse-admiral-roclets.html
 phuse-admiral-roclets-pres_files/
 phuse-admiral-roclets-pres.html
+
+/.quarto/
+**/*.quarto_ipynb
