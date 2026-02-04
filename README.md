@@ -1,15 +1,1 @@
-# Outline 
-
-## Pkgdown sites
-* Examples
-* Problems
-
-## What is admiral
-* Whoa so many examples
-
-## Roclet extensions
-* Precise examples
-* Scaffolding
-* AI consumption
-
-## Check it out...
+Presentation and Paper for US PHUSE Connect 2026
