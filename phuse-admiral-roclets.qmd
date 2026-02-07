@@ -24,7 +24,7 @@ library(glue)
 
 R package function documentation is singular in open source.  Detailed argument definitions coupled with inline examples can help breakdown complicated functions that help solve problems.  In admiral, R package for ADaMs, we have always prided ourselves on top-notch function documentation.  However, as the examples grew for each function the documentation became unwieldy.  Using the roxygen2 package, a key component of any R package, we were able to extend the roclets to better display and curate the examples.  This presentation/paper will discuss the technical details of how we extended the roclet and how this positively impacted our function examples.
 
-![](rtfm.png){width="150px"}
+![](images/rtfm.png){width="150px"}
 
 ## INTRODUCTION
 
@@ -146,7 +146,7 @@ function.
 # https://dplyr.tidyverse.org/reference/arrange.html#ref-examples
 ```
 
-![](dplyr_ex.png){width="600px"}
+![](images/dplyr_ex.png){width="600px"}
 
 The arrange() function has limited arguments, but is very versatile and has several long
 examples. In the screenshot above, the two red arrows on the left are to highlight where 
@@ -166,7 +166,7 @@ a partial date.
 
 ### derive_vars_dt() at 1.2.0
 
-![](admiral_1_2.png){width="600px"}
+![](images/admiral_1_2.png){width="600px"}
 
 The pattern of red arrows is similar to the dplyr arrange function.  The left side
 two red arrows have comments inserted to show how the function can be used
@@ -175,7 +175,7 @@ When you click the link it will take you to the top of the examples.
 
 ### derive_vars_dt() at 1.3.0
 
-![](admiral_1_3.png){width="600px"}
+![](images/admiral_1_3.png){width="600px"}
 
 Now we are cooking! The example for derive_vars_dt() has a title for it followed by
 a detailed description as evidenced by the red arrows on the left side.
@@ -313,7 +313,7 @@ The captured code and its output are then formatted and included as part of the 
 
 Viola! We get a pretty examples with amazing layout like below.
 
-![](admiral_1_3.png){width="600px"}
+![](images/admiral_1_3.png){width="600px"}
 
 ## CONCLUSIONS
 

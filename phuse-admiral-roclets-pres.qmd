@@ -15,7 +15,7 @@ editor: source
 :::: {.columns}
 
 ::: {.column width="40%"}
-![](rtfm.png) 
+![](images/rtfm.png) 
 :::
 
 ::: {.column width="60%"}
@@ -139,7 +139,7 @@ add_numbers(10, -2)
 
 ## Don't touch!
 
-![](dont_touch.png){width="400px"}
+![](images/dont_touch.png){width="400px"}
 
 * I do not recommend editing these by hand - ever - unless you want pain!
 
@@ -147,9 +147,9 @@ add_numbers(10, -2)
 ## Render in R help file and pkgdown
 
 ::: {.r-stack}
-![](add_2.png){.fragment width="650" height="400"}
+![](images/add_2.png){.fragment width="650" height="400"}
 
-![](add_2_pkgdown.png){.fragment width="500" height="450"}
+![](images/add_2_pkgdown.png){.fragment width="500" height="450"}
 :::
 
 ## dplyr
@@ -157,7 +157,7 @@ add_numbers(10, -2)
 :::: {.columns}
 
 ::: {.column width="60%"}
-![](dplyr_ex.png)
+![](images/dplyr_ex.png)
 :::
 
 ::: {.column width="40%"}
@@ -176,7 +176,7 @@ add_numbers(10, -2)
 :::: {.columns}
 
 ::: {.column width="60%"}
-![](admiral_1_2.png)
+![](images/admiral_1_2.png)
 :::
 
 ::: {.column width="40%"}
@@ -195,7 +195,7 @@ add_numbers(10, -2)
 :::: {.columns}
 
 ::: {.column width="60%"}
-![](admiral_1_3.png)
+![](images/admiral_1_3.png)
 :::
 
 ::: {.column width="40%"}
@@ -213,7 +213,7 @@ add_numbers(10, -2)
 :::: {.columns}
 
 ::: {.column width="60%"}
-![](socery.png)
+![](images/socery.png)
 :::
 
 ::: {.column width="40%"}
