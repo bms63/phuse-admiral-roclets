@@ -22,7 +22,7 @@ library(glue)
 
 ## ABSTRACT
 
-R package function documentation is singular in open source.  Detailed argument definitions coupled with inline examples can help breakdown complicated functions that help solve problems.  In admiral, R package for ADaMs, we have always prided ourselves on top-notch function documentation.  However, as the examples grew for each function the documentation became unwieldy.  Using the roxygen2 package, a key component of any R package, we were able to extend the roclets to better display and curate the examples.  This presentation/paper will discuss the technical details of how we extended the roclet and how this positively impacted our function examples.
+R package function documentation is singular in open source.  Detailed argument definitions coupled with inline examples can help breakdown complicated functions that help solve problems.  In admiral, R package for ADaMs, we have always prided ourselves on top-notch function documentation.  However, as the examples grew for each function the documentation became unwieldy.  Using the roxygen2 package, a key component of any R package, we were able to extend the roclets to better display and curate the examples for each function.  This presentation/paper will discuss the technical details of how we extended the roclet and how this positively impacted our function examples. Improved function documentation is not only helpful to users, but also for AIs/LLMs building knowledge off your documentation.
 
 ![](images/rtfm.png){width="150px"}
 
@@ -48,13 +48,13 @@ The roxygen2 R package simplifies the process of documenting R code within packa
 to write documentation directly alongside their function definitions using special comments, known as 
 roxygen comments, which start with #'. Note that the package is called roxygen2 while we refer to the 
 process of adding #' as just roxygen or roxygenize. This approach keeps code and documentation co-located, 
-making updates more efficient. roxygen2 then processes these comments to automatically generate .Rd files, 
+making updates more efficient. The package roxygen2, has several functions that help process these "roxygen comments" to automatically generate .Rd files, 
 which are the standard R documentation files. This automated generation eliminates the need to manually write complex .Rd files, 
 significantly streamlining package development allowing developers to stay focused on writing code 
 that helps solve a user's problems. Beyond .Rd files, roxygen2 also helps to manage the NAMESPACE 
 file and other package metadata, simplifying the overall package development workflow.  
 
-Below we have a brief example of a function add_numbers() with its roxygen documentation. 
+Below we have a brief example of a function add_numbers() with its roxygen documentation. Please note the use of #' at each line before the function and special tags that start with @ symbol.
 
 ```{r, echo = TRUE, eval = FALSE}
 #' Add two numbers together.
@@ -75,11 +75,11 @@ add_numbers <- function(x, y) {
 Let's take a quick look at each of roxygen sections/tags:
 
 * #' Add two numbers together - serves as the title for the function.
-* #' This function takes two numeric inputs and returns their sum -  is the description of the function.
+* #' This function takes two numeric inputs and returns their sum -  serves as the description of the function.
 * @param x A numeric value, the first number - describes the first argument, x.
 * @param y A numeric value, the second number - describes the second argument, y.
 * @return The sum of x and y. - describes what the function returns.
-* @examples provides executable R code demonstrating how to use the function
+* @examples provides executable R code demonstrating how to use the function.
 
 Typically,this function would be located in a file called add_numbers.R within a folder called /R.
 When a developer runs the function roxygenize() from the roxygen2 package it will create a corresponding .Rd
@@ -121,7 +121,8 @@ add_numbers(10, -2)
 ```
 
 
-The focus of this paper will be on enhancing the abilities of the @examples tag.
+The focus of this paper will be on enhancing the abilities of the @examples tag within
+the function documentation.
 
 ### admiral package
 
@@ -131,15 +132,15 @@ admiral has a lot of functions to do many different derivations for ADaMs. Many 
 need to be flexible to account for different scenarios, filtering or dirty data. As there
 are many functions with a lot of flexibility there will also be many examples. Finding
 a way to organize these functions in a way that helps a user is paramount to admiral's
-mission.  
+mission. The advent of AI/LLMs that can easily harvest information makes this even more paramount, i.e. improving function documentation. Chat bots and coding agents harvesting poor documentation examples could impact the use of a package. As admiral wants to stay relevant with the times, improving our documentation for both users and AI/LLMs became a very important goal for us in 2024/2025,
 
 ## R PACKAGE DOCUMENTATION
 
 A lot of R packages have amazing documentation with great examples. However, as
 a package grows in the number of functions the documentation will also grow. If
-your package's function is developed in a way that the functions are flexible, then
+your package's functions are developed in a way that the functions are flexible, then
 you will need to showcase this flexibility with examples. To first introduce this problem
-with a simple example, we will look at  dplyr R package looking at the arrange()
+with a simple example, we will look at the dplyr R package looking at the arrange()
 function.
 
 ```{r, echo = FALSE, eval = FALSE}
@@ -153,7 +154,7 @@ examples. In the screenshot above, the two red arrows on the left are to highlig
 the use of the function changes for the examples. Code comments, #, are used to highlight
 what the change is and serve as a marker for a new example for the function. 
 The red arrow on the right highlights how to get access to the examples. 
-When you click the link it will take you to the top of the examples.  
+When you click the Example link on right-side it will take you to the top of the examples.  
 
 
 ## ADMIRAL DOCUMENTATION
@@ -168,10 +169,10 @@ a partial date.
 
 ![](images/admiral_1_2.png){width="600px"}
 
-The pattern of red arrows is similar to the dplyr arrange function.  The left side
+The pattern of red arrows is similar to the dplyr arrange() function.  The left side
 two red arrows have comments inserted to show how the function can be used
 to do different imputations.  The right side red arrow has the link for the examples.
-When you click the link it will take you to the top of the examples.  
+When you click the Examples link it will take you to the top of the examples. The documentation is extensive for this function, but the display of examples is jumbled together. There is room for improvement!  
 
 ### derive_vars_dt() at 1.3.0
 
@@ -217,14 +218,18 @@ demo_fun <- function(x, number = 1, letter = "a") 42
 ```
 
 First, notice the use of a new roxygen tag @examplesx, which extends the abilities of the
-original @examples.  Once @examplesx is declared, it will open up the following tags:
-@caption, @info, @code. These new tags allow for clear titles to be declared using @caption,
-with detailed descriptions using @info and write specific code after the @code tag for the
-specific example. You can repeat this pattern to showcase many examples, 
-like we saw for derive_vars_dt() 1.3.0 on the right-hand side of the above image.
+original @examples.  Once @examplesx is declared, you can now use the following tags:
 
-Below you will find the .Rd portion of our demo_fun() function.  I have removed the
-section pertaining to the arguments to save some space. Again, you don't want to 
+* @caption
+* @info
+* @code. 
+
+@caption allows for clearer titles to be declared as seen in derive_vars_dt() 1.3. @info allows for more detailed descriptions per example. Finally, @code is the specific
+code needed for the example. You can repeat this pattern to showcase many examples, 
+like we saw for derive_vars_dt() 1.3.0 on the right-hand side of the above image. Please note that not every function in admiral has this enhancement, just ones that have many examples to showcase the range of the function.
+
+Below you will find the .Rd portion of our demo_fun() function. This .Rd is generated in the same process as discussed above. I have removed the
+section pertaining to the arguments to save some space and only showcase the sections generated for @caption, @info, @code. Again, you don't want to 
 manually create this either!
 
 ```{bash, eval = FALSE}
@@ -263,15 +268,15 @@ This example shows that the \code{letter} argument does not affect the output.
 
 The admiral R package has a dependency package called admiraldev, which houses 
 utility functions not needed by the user to do ADaM derivations. A lot of these utility
-functions are to check user inputs and provide feedback to the users on issues. The package
-is also home to our roclet extension functions.  The rdx_roclet.R file contains
-several powerful functions to extend the standard roclet, meaning it performs its 
+functions are to check user inputs and provide feedback to the users on issues with their data. The package
+is also home to developer utilities and so houses the roclet extension functions. The rdx_roclet.R file contains
+several powerful functions to extend the standard roclet, meaning the functions first performs its 
 own custom processing first, and then delegates to the standard rd roclet to 
 finish generating the .Rd file. This allows it to introduce new Roxygen tags and 
 modify how existing information is presented. The roxygen2 package has a great 
-article on extending the roclet which is recommended reading - https://roxygen2.r-lib.org/articles/extending.html.
+article on extending the roclet which is recommended reading - https://roxygen2.r-lib.org/articles/extending.html.  
 
-Let's try and break down how the rdx_roclet related functions work to produce the 
+Let's try and break down how the rdx_roclet.R related functions work to produce the 
 extended roxygen abilities. Note this is a high-level overview and readers are encouraged
 to explore the https://github.com/pharmaverse/admiraldev/blob/main/R/roclet_rdx.R
 for more details. 
@@ -280,7 +285,7 @@ for more details.
 
 **Purpose:** To explicitly mark the beginning of the examples section. It's largely a structural tag and can often be omitted if the first example-related tag is @caption.
 
-**Processing:** Once this @examplesx is declared, the transform_examplesx() function will look for and processes custom Roxygen tags like @caption, @info, and @code to generate structured examples. It groups these tags, executes the R code provided by @code (including capturing its output and handling expected conditions), and then combines this information into a single examplex tag for the R documentation, effectively transforming descriptive and executable components into a cohesive example. Crucially, it also cleanses the executed code's output of problematic Unicode characters to prevent LaTeX compilation errors in the final PDF manual.
+**Processing:** Once this @examplesx is declared, the transform_examplesx() function will look for and processes custom Roxygen tags like @caption, @info, and @code to generate structured examples. It groups these tags, executes the R code provided by @code (including capturing its output and handling expected conditions), and then combines this information into a single examplex tag for the documentation, effectively transforming descriptive and executable components into a cohesive example. Crucially, it also cleanses the executed code's output of problematic Unicode characters to prevent LaTeX compilation errors in the final PDF manual.
 
 #### @caption (Example Title)
 
@@ -307,7 +312,7 @@ for more details.
 **Processing:** transform_examplesx() extracts the code and any expected_cnds options. It then calls the execute_example() function.
 execute_example() runs the R code in a controlled environment, captures its output (what R would print to the console), and any messages, warnings, or errors.
 
-If an unexpected condition occurs (i.e., a warning or error not listed in expected_cnds), it will throw an error, causing the R CMD check to fail. This ensures that examples are not only documented but also correct and functional.
+If an unexpected condition occurs (i.e., a warning or error not listed in expected_cnds), it will throw an error, causing the R CMD check to fail. A failing R CMD check will not pass CRAN checks. This ensures that examples are not only documented but also correct and functional.
 
 The captured code and its output are then formatted and included as part of the example's contents.
 
@@ -317,13 +322,15 @@ Viola! We get a pretty examples with amazing layout like below.
 
 ## CONCLUSIONS
 
-The admiral R package, which specializes in creating Analysis Data Model (ADaM) datasets, encountered a challenge with increasingly unwieldy function documentation as its examples grew in number and complexity. To address this, admiral significantly enhanced its documentation by extending roxygen2's roclets—a core component of R package documentation. The key innovation involved introducing custom roxygen tags: @examplesx, @caption, @info, and @code. This roxygen extension allows for a structured and user-friendly presentation of examples, as seen in the derive_vars_dt() function. Ultimately, this method enables admiral to provide scaffolding for its examples, allowing users to easily navigate and understand complex function usage, thereby significantly improving the overall user experience and the quality of its function documentation.
+The admiral R package, which specializes in creating Analysis Data Model (ADaM) datasets, encountered a challenge with increasingly unwieldy function documentation as its examples grew in number and complexity. Coupled with the rise of AI/LLMs that harvest documentation, the admiral team looked at home to improve their documention. To address this, admiral significantly enhanced its documentation by extending roxygen2's roclets—a core component of R package documentation. The key innovation involved introducing custom roxygen tags: @examplesx, @caption, @info, and @code. This roxygen extension allows for a structured and user-friendly presentation of examples, as seen in the derive_vars_dt() function. Ultimately, this method enables admiral to provide scaffolding for its examples, allowing users to easily navigate and understand complex function usage, thereby significantly improving the overall user experience and the quality of its function documentation and making it easier for AIs/LLMs to harvest information.
 
 ## REFERENCES
 
 In-line documentation for R. (n.d.). <https://roxygen2.r-lib.org/> </br>
 ADAM in R Asset Library. (n.d.). <https://pharmaverse.github.io/admiral> </br>
 Utility functions and development tools for the Admiral Package Family. (n.d.). <https://pharmaverse.github.io/admiraldev> </br>
+pharmaverse (n.d.). <https://pharmaverse.org/> 
+Derive/Impute a Date from a Date Character Vector (n.d.). <https://pharmaverse.github.io/admiral/reference/derive_vars_dt.html>
 
 ## ACKNOWLEDGMENTS
 
@@ -335,7 +342,6 @@ Your comments and questions are valued and encouraged. Contact the authors at: <
 Author Name: Edoardo Mancini </br>
 Company: Roche </br>
 Email: edoardo.mancini_at_roche.com </br>
-Website: https://www.danieldsjoberg.com/ </br>
  
 Author Name: Ben Straub </br>
 Company: GSK </br>
