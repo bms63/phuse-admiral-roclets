@@ -9,3 +9,5 @@ phuse-admiral-roclets-pres.html
 
 /.quarto/
 **/*.quarto_ipynb
+_site
+_site/search.json
