@@ -318,13 +318,13 @@ This example shows that the \code{letter} argument does not affect the output.
 * Get into the purpose, how it works and the processing (briefly!!)
 :::
 
-## @examplesx - The Examples Section Initiator {.smaller}
+## @examplesx - The Examples Section {.smaller}
 
 **Purpose:** Marks the beginning of the entire examples section in Roxygen documentation, serving as a structural tag.
 
-**How it Works:** Signals the transform_examplesx() function to start processing custom Roxygen tags for examples.
+**How it Works:** Signals the `transform_examplesx()` function to start processing custom Roxygen tags for examples.
 
-**Processing:** The transform_examplesx() function orchestrates the grouping of @caption, @info, and @code tags. It executes R code from @code, captures output, handles expected conditions, and combines these into a cohesive examplex tag. It also cleanses output of problematic Unicode characters to prevent LaTeX errors.
+**Processing:** The `transform_examplesx()` function orchestrates the grouping of @caption, @info, and @code tags. It executes R code from @code, captures output, handles expected conditions, and combines these into a cohesive `examplex` tag. It also cleanses output of problematic Unicode characters to prevent LaTeX errors.
 
 ## @caption - Example Title {.smaller}
 
@@ -332,29 +332,29 @@ This example shows that the \code{letter} argument does not affect the output.
 
 **How it Works:** Each @caption tag initiates a new example block, with the text following it becoming the title.
 
-**Processing:** The transform_examplesx() function collects the caption text. In the final .Rd documentation output, this caption is formatted as a \subsection{} within the main \section{Examples}{}.
+**Processing:** The `transform_examplesx()` function collects the caption text. In the final .Rd documentation output, this caption is formatted as a `\subsection{}` within the main `\section{Examples}{}`.
 
 ## @info - Example Description {.smaller}
 
 **Purpose:** Offers additional descriptive text or context for an example, explaining its demonstration or specific considerations.
 
-**How it Works:** It is placed after an @caption and before an @code tag, containing explanatory text for that specific example.
+**How it Works:** It is placed after an `@caption` and before an `@code` tag, containing explanatory text for that specific example.
 
-**Processing:** The transform_examplesx() function appends this descriptive text to the current example block's contents, integrating it into the overall example documentation.
+**Processing:** The `transform_examplesx()` function appends this descriptive text to the current example block's contents, integrating it into the overall example documentation.
 
 ##  @code - Executable Example Code {.smaller}
 
 **Purpose:** Provides the actual R code for an example, which is executed during the R package check, and its output is included in the documentation.
 
-**How it Works:** The R code follows the @code tag. It can include an optional [expected_cnds = "warning"] argument to specify anticipated conditions like warnings or errors without causing check failures.
+**How it Works:** The R code follows the `@code` tag. It can include an optional `[expected_cnds = "warning"]` argument to specify anticipated conditions like warnings or errors without causing check failures.
 
-**Processing:** transform_examplesx() extracts the code and any expected_cnds options, then calls execute_example(). This function runs the code in a controlled environment, captures console output, messages, warnings, and errors. Unexpected conditions (not listed in expected_cnds) lead to an error and an R CMD check failure, ensuring examples are functional and correct. The captured code and its output are then formatted and integrated into the example's contents.
+**Processing:** `transform_examplesx()` extracts the code and any `expected_cnds` options, then calls `execute_example()`. This function runs the code in a controlled environment, captures console output, messages, warnings, and errors. Unexpected conditions (not listed in `expected_cnds`) lead to an error and an R CMD check failure, ensuring examples are functional and correct. The captured code and its output are then formatted and integrated into the example's contents.
 
 ## Conclusion {.smaller}
 
 * The admiral R package faced challenges with unwieldy function documentation due to complex and numerous examples.
 
-* To address this, admiral extended roxygen2's roclets by introducing custom Roxygen tags: @examplesx, @caption, @info, and @code.
+* To address this, admiral extended roxygen2's roclets by introducing custom Roxygen tags: `@examplesx`, `@caption`, `@info`, and `@code`.
 
 * These custom tags enable a structured, user-friendly presentation of examples, providing scaffolding for complex function usage.
 
