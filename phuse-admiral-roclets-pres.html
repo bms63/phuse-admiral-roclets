@@ -532,37 +532,35 @@ Ben Straub (GSK, Philadelphia, United States)
 <li class="fragment">Get into the purpose, how it works and the processing (briefly!!)</li>
 </ul>
 </section>
-<section id="examplesx---the-examples-section-initiator" class="slide level2 smaller">
-<h2><span class="citation" data-cites="examplesx">@examplesx</span> - The Examples Section Initiator</h2>
+<section id="examplesx---the-examples-section" class="slide level2 smaller">
+<h2><span class="citation" data-cites="examplesx">@examplesx</span> - The Examples Section</h2>
 <p><strong>Purpose:</strong> Marks the beginning of the entire examples section in Roxygen documentation, serving as a structural tag.</p>
-<p><strong>How it Works:</strong> Signals the transform_examplesx() function to start processing custom Roxygen tags for examples.</p>
-<p><strong>Processing:</strong> The transform_examplesx() function orchestrates the grouping of <span class="citation" data-cites="caption">@caption</span>, <span class="citation" data-cites="info">@info</span>, and <span class="citation" data-cites="code">@code</span> tags. It executes R code from <span class="citation" data-cites="code">@code</span>, captures output, handles expected conditions, and combines these into a cohesive examplex tag. It also cleanses output of problematic Unicode characters to prevent LaTeX errors.</p>
+<p><strong>How it Works:</strong> Signals the <code>transform_examplesx()</code> function to start processing custom Roxygen tags for examples.</p>
+<p><strong>Processing:</strong> The <code>transform_examplesx()</code> function orchestrates the grouping of <span class="citation" data-cites="caption">@caption</span>, <span class="citation" data-cites="info">@info</span>, and <span class="citation" data-cites="code">@code</span> tags. It executes R code from <span class="citation" data-cites="code">@code</span>, captures output, handles expected conditions, and combines these into a cohesive <code>examplex</code> tag. It also cleanses output of problematic Unicode characters to prevent LaTeX errors.</p>
 </section>
 <section id="caption---example-title" class="slide level2 smaller">
 <h2><span class="citation" data-cites="caption">@caption</span> - Example Title</h2>
 <p><strong>Purpose:</strong> Provides a descriptive title or caption for an individual example within the examples section.</p>
 <p><strong>How it Works:</strong> Each <span class="citation" data-cites="caption">@caption</span> tag initiates a new example block, with the text following it becoming the title.</p>
-<strong>Processing:</strong> The transform_examplesx() function collects the caption text. In the final .Rd documentation output, this caption is formatted as a
-within the main
-<p>{}.</p>
+<p><strong>Processing:</strong> The <code>transform_examplesx()</code> function collects the caption text. In the final .Rd documentation output, this caption is formatted as a <code>\subsection{}</code> within the main <code>\section{Examples}{}</code>.</p>
 </section>
 <section id="info---example-description" class="slide level2 smaller">
 <h2><span class="citation" data-cites="info">@info</span> - Example Description</h2>
 <p><strong>Purpose:</strong> Offers additional descriptive text or context for an example, explaining its demonstration or specific considerations.</p>
-<p><strong>How it Works:</strong> It is placed after an <span class="citation" data-cites="caption">@caption</span> and before an <span class="citation" data-cites="code">@code</span> tag, containing explanatory text for that specific example.</p>
-<p><strong>Processing:</strong> The transform_examplesx() function appends this descriptive text to the current example block’s contents, integrating it into the overall example documentation.</p>
+<p><strong>How it Works:</strong> It is placed after an <code>@caption</code> and before an <code>@code</code> tag, containing explanatory text for that specific example.</p>
+<p><strong>Processing:</strong> The <code>transform_examplesx()</code> function appends this descriptive text to the current example block’s contents, integrating it into the overall example documentation.</p>
 </section>
 <section id="code---executable-example-code" class="slide level2 smaller">
 <h2><span class="citation" data-cites="code">@code</span> - Executable Example Code</h2>
 <p><strong>Purpose:</strong> Provides the actual R code for an example, which is executed during the R package check, and its output is included in the documentation.</p>
-<p><strong>How it Works:</strong> The R code follows the <span class="citation" data-cites="code">@code</span> tag. It can include an optional [expected_cnds = “warning”] argument to specify anticipated conditions like warnings or errors without causing check failures.</p>
-<p><strong>Processing:</strong> transform_examplesx() extracts the code and any expected_cnds options, then calls execute_example(). This function runs the code in a controlled environment, captures console output, messages, warnings, and errors. Unexpected conditions (not listed in expected_cnds) lead to an error and an R CMD check failure, ensuring examples are functional and correct. The captured code and its output are then formatted and integrated into the example’s contents.</p>
+<p><strong>How it Works:</strong> The R code follows the <code>@code</code> tag. It can include an optional <code>[expected_cnds = "warning"]</code> argument to specify anticipated conditions like warnings or errors without causing check failures.</p>
+<p><strong>Processing:</strong> <code>transform_examplesx()</code> extracts the code and any <code>expected_cnds</code> options, then calls <code>execute_example()</code>. This function runs the code in a controlled environment, captures console output, messages, warnings, and errors. Unexpected conditions (not listed in <code>expected_cnds</code>) lead to an error and an R CMD check failure, ensuring examples are functional and correct. The captured code and its output are then formatted and integrated into the example’s contents.</p>
 </section>
 <section id="conclusion" class="slide level2 smaller">
 <h2>Conclusion</h2>
 <ul>
 <li><p>The admiral R package faced challenges with unwieldy function documentation due to complex and numerous examples.</p></li>
-<li><p>To address this, admiral extended roxygen2’s roclets by introducing custom Roxygen tags: <span class="citation" data-cites="examplesx">@examplesx</span>, <span class="citation" data-cites="caption">@caption</span>, <span class="citation" data-cites="info">@info</span>, and <span class="citation" data-cites="code">@code</span>.</p></li>
+<li><p>To address this, admiral extended roxygen2’s roclets by introducing custom Roxygen tags: <code>@examplesx</code>, <code>@caption</code>, <code>@info</code>, and <code>@code</code>.</p></li>
 <li><p>These custom tags enable a structured, user-friendly presentation of examples, providing scaffolding for complex function usage.</p></li>
 <li><p>This innovation significantly improved the overall user experience and the quality of admiral’s function documentation.</p></li>
 </ul>

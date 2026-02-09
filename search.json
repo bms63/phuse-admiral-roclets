@@ -1,19 +1,5 @@
 [
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Time to Roclet",
-    "section": "",
-    "text": "This is a Quarto site for the PHUSE US Connect 2026 talk titled “Time to Roclet”. It will be presented on Monday, March 26, 2026 in Austin, Texas."
-  },
-  {
     "objectID": "phuse-admiral-roclets-pres.html#required-xkcd-comic",
     "href": "phuse-admiral-roclets-pres.html#required-xkcd-comic",
     "title": "Time to Roclet",
@@ -133,18 +119,18 @@
     "text": "Technical Takeaway\n\nNew Tags on the Block:\n\n@examplesx\n@caption\n@info\n@code\n\nGet into the purpose, how it works and the processing (briefly!!)"
   },
   {
-    "objectID": "phuse-admiral-roclets-pres.html#examplesx---the-examples-section-initiator",
-    "href": "phuse-admiral-roclets-pres.html#examplesx---the-examples-section-initiator",
+    "objectID": "phuse-admiral-roclets-pres.html#examplesx---the-examples-section",
+    "href": "phuse-admiral-roclets-pres.html#examplesx---the-examples-section",
     "title": "Time to Roclet",
-    "section": "@examplesx - The Examples Section Initiator",
-    "text": "@examplesx - The Examples Section Initiator\nPurpose: Marks the beginning of the entire examples section in Roxygen documentation, serving as a structural tag.\nHow it Works: Signals the transform_examplesx() function to start processing custom Roxygen tags for examples.\nProcessing: The transform_examplesx() function orchestrates the grouping of @caption, @info, and @code tags. It executes R code from @code, captures output, handles expected conditions, and combines these into a cohesive examplex tag. It also cleanses output of problematic Unicode characters to prevent LaTeX errors."
+    "section": "@examplesx - The Examples Section",
+    "text": "@examplesx - The Examples Section\nPurpose: Marks the beginning of the entire examples section in Roxygen documentation, serving as a structural tag.\nHow it Works: Signals the transform_examplesx() function to start processing custom Roxygen tags for examples.\nProcessing: The transform_examplesx() function orchestrates the grouping of @caption, @info, and @code tags. It executes R code from @code, captures output, handles expected conditions, and combines these into a cohesive examplex tag. It also cleanses output of problematic Unicode characters to prevent LaTeX errors."
   },
   {
     "objectID": "phuse-admiral-roclets-pres.html#caption---example-title",
     "href": "phuse-admiral-roclets-pres.html#caption---example-title",
     "title": "Time to Roclet",
     "section": "@caption - Example Title",
-    "text": "@caption - Example Title\nPurpose: Provides a descriptive title or caption for an individual example within the examples section.\nHow it Works: Each @caption tag initiates a new example block, with the text following it becoming the title.\nProcessing: The transform_examplesx() function collects the caption text. In the final .Rd documentation output, this caption is formatted as a\nwithin the main\n{}."
+    "text": "@caption - Example Title\nPurpose: Provides a descriptive title or caption for an individual example within the examples section.\nHow it Works: Each @caption tag initiates a new example block, with the text following it becoming the title.\nProcessing: The transform_examplesx() function collects the caption text. In the final .Rd documentation output, this caption is formatted as a \\subsection{} within the main \\section{Examples}{}."
   },
   {
     "objectID": "phuse-admiral-roclets-pres.html#info---example-description",
@@ -158,7 +144,7 @@
     "href": "phuse-admiral-roclets-pres.html#code---executable-example-code",
     "title": "Time to Roclet",
     "section": "@code - Executable Example Code",
-    "text": "@code - Executable Example Code\nPurpose: Provides the actual R code for an example, which is executed during the R package check, and its output is included in the documentation.\nHow it Works: The R code follows the @code tag. It can include an optional [expected_cnds = “warning”] argument to specify anticipated conditions like warnings or errors without causing check failures.\nProcessing: transform_examplesx() extracts the code and any expected_cnds options, then calls execute_example(). This function runs the code in a controlled environment, captures console output, messages, warnings, and errors. Unexpected conditions (not listed in expected_cnds) lead to an error and an R CMD check failure, ensuring examples are functional and correct. The captured code and its output are then formatted and integrated into the example’s contents."
+    "text": "@code - Executable Example Code\nPurpose: Provides the actual R code for an example, which is executed during the R package check, and its output is included in the documentation.\nHow it Works: The R code follows the @code tag. It can include an optional [expected_cnds = \"warning\"] argument to specify anticipated conditions like warnings or errors without causing check failures.\nProcessing: transform_examplesx() extracts the code and any expected_cnds options, then calls execute_example(). This function runs the code in a controlled environment, captures console output, messages, warnings, and errors. Unexpected conditions (not listed in expected_cnds) lead to an error and an R CMD check failure, ensuring examples are functional and correct. The captured code and its output are then formatted and integrated into the example’s contents."
   },
   {
     "objectID": "phuse-admiral-roclets-pres.html#conclusion",
@@ -173,5 +159,19 @@
     "title": "Time to Roclet",
     "section": "Question",
     "text": "Question\nWhat is the name of the documentation package that could be extended to address admiral’s needs?"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Time to Roclet",
+    "section": "",
+    "text": "This is a Quarto site for the PHUSE US Connect 2026 talk titled “Time to Roclet”. It will be presented on Monday, March 26, 2026 in Austin, Texas."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
   }
 ]
