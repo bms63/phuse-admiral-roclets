@@ -214,9 +214,9 @@ Ben Straub (GSK, Philadelphia, United States)
 <p><img data-src="images/rtfm.png"></p>
 </div><div class="column" style="width:60%;">
 <ul>
-<li class="fragment">Do you read the manual first? Show of Hands</li>
-<li class="fragment">Do you just dive in and read the manual afterwards? Show of Hands</li>
-<li class="fragment">I am a dive in and then read the manual later.<br>
+<li>Do you read the manual first? Show of Hands</li>
+<li>Do you just dive in and read the manual afterwards? Show of Hands</li>
+<li>I am a dive in and then read the manual later.<br>
 </li>
 </ul>
 </div></div>
@@ -224,43 +224,43 @@ Ben Straub (GSK, Philadelphia, United States)
 <section id="the-next-20-minutes" class="slide level2">
 <h2>The next 20 minutes…</h2>
 <ul>
-<li class="fragment">Brief intro to the problem. Hint: documentation</li>
-<li class="fragment">Infrastructure behind R package documentation</li>
-<li class="fragment">admiral R package and its documentation</li>
-<li class="fragment">How admiral extended roxygen2 abilities to solve its problem</li>
+<li>Brief intro to the problem. Hint: documentation</li>
+<li>Infrastructure behind R package documentation</li>
+<li>admiral R package and its documentation</li>
+<li>How admiral extended roxygen2 abilities to solve its problem</li>
 </ul>
 </section>
 <section id="so-at-the-end-of-20-minutes" class="slide level2">
 <h2>So at the end of 20 minutes…</h2>
 <p>I hope you walk away with:</p>
 <ul>
-<li class="fragment">How R documentation is created.</li>
-<li class="fragment">How admiral enhanced its documentation to help its users.</li>
-<li class="fragment">Better documentation means users are happy but also also AI/LLMs to easier understand and harvest information from your R package.</li>
+<li>How R documentation is created.</li>
+<li>How admiral enhanced its documentation to help its users.</li>
+<li>Better documentation means users are happy but also also AI/LLMs to easier understand and harvest information from your R package.</li>
 </ul>
 </section>
 <section id="introduction-the-challenge-of-r-package-documentation" class="slide level2 smaller">
 <h2>Introduction: The Challenge of R Package Documentation</h2>
 <ul>
-<li class="fragment">Detailed argument definitions and inline examples aid understanding complex functions.</li>
-<li class="fragment">In <code>admiral</code>, top-notch documentation is a priority.</li>
-<li class="fragment"><strong>Problem</strong>: As number of functions and complexity of functions grew, documentation became unwieldy and hard to navigate.</li>
-<li class="fragment"><strong>Solution</strong>: Extended <code>roxygen</code> package’s <code>roclets</code> to better display and curate examples.</li>
-<li class="fragment">This presentation explores the technical details and positive impact on <code>admiral</code>’s function examples.</li>
+<li>Detailed argument definitions and inline examples aid understanding complex functions.</li>
+<li>In <code>admiral</code>, top-notch documentation is a priority.</li>
+<li><strong>Problem</strong>: As number of functions and complexity of functions grew, documentation became unwieldy and hard to navigate.</li>
+<li><strong>Solution</strong>: Extended <code>roxygen</code> package’s <code>roclets</code> to better display and curate examples.</li>
+<li>This presentation explores the technical details and positive impact on <code>admiral</code>’s function examples.</li>
 </ul>
 </section>
 <section id="r-packages-the-foundation-of-the-r-ecosystem" class="slide level2 smaller">
 <h2>R Packages: The Foundation of the R Ecosystem</h2>
 <ul>
-<li class="fragment">R packages bundle code, data, documentation, and tests in a standardized format.</li>
-<li class="fragment">They facilitate code sharing and reuse, expanding R’s functionality.</li>
-<li class="fragment"><strong>Key components</strong>:
+<li>R packages bundle code, data, documentation, and tests in a standardized format.</li>
+<li>They facilitate code sharing and reuse, expanding R’s functionality.</li>
+<li><strong>Key components</strong>:
 <ul>
-<li class="fragment">R functions in <code>R/</code> directory. Documentation in <code>man/</code></li>
-<li class="fragment">Documentation using <code>roxygen2</code> comments in <code>.R</code> prodce the <code>.Rd</code> files.</li>
-<li class="fragment">Dependencies in <code>DESCRIPTION</code> file.</li>
-<li class="fragment">Few other folders and needed files - Check out: https://r-pkgs.org/</li>
-<li class="fragment"><div id="" class="qrcode"></div>
+<li>R functions in <code>R/</code> directory. Documentation in <code>man/</code></li>
+<li>Documentation using <code>roxygen2</code> comments in <code>.R</code> prodce the <code>.Rd</code> files.</li>
+<li>Dependencies in <code>DESCRIPTION</code> file.</li>
+<li>Few other folders and needed files - Check out: https://r-pkgs.org/</li>
+<li><div id="" class="qrcode"></div>
 <script type="text/javascript">
 (function() {
   var script = document.currentScript;
@@ -276,17 +276,17 @@ Ben Straub (GSK, Philadelphia, United States)
 <section id="roxygen2-streamlining-r-docs" class="slide level2 smaller">
 <h2>roxygen2: Streamlining R Docs</h2>
 <ul>
-<li class="fragment">The <code>roxygen2</code> R package simplifies documentation within R packages.</li>
-<li class="fragment">Developers write documentation directly alongside function definitions using <code>#'</code> comments.</li>
-<li class="fragment"><strong>Benefits</strong>:
+<li>The <code>roxygen2</code> R package simplifies documentation within R packages.</li>
+<li>Developers write documentation directly alongside function definitions using <code>#'</code> comments.</li>
+<li><strong>Benefits</strong>:
 <ul>
-<li class="fragment">Keeps code and documentation co-located, making updates efficient.</li>
-<li class="fragment">Automatically generates <code>.Rd</code> files (standard R documentation) from comments.</li>
+<li>Keeps code and documentation co-located, making updates efficient.</li>
+<li>Automatically generates <code>.Rd</code> files (standard R documentation) from comments.</li>
 </ul></li>
-<li class="fragment">This system significantly reduces effort, enhancing user understanding of functions.</li>
-<li class="fragment">Check out: https://roxygen2.r-lib.org/
+<li>This system significantly reduces effort, enhancing user understanding of functions.</li>
+<li>Check out: https://roxygen2.r-lib.org/
 <ul>
-<li class="fragment"><div id="" class="qrcode"></div>
+<li><div id="" class="qrcode"></div>
 <script type="text/javascript">
 (function() {
   var script = document.currentScript;
@@ -364,8 +364,8 @@ Ben Straub (GSK, Philadelphia, United States)
 <section id="render-in-r-help-file-and-pkgdown" class="slide level2">
 <h2>Render in R help file and pkgdown</h2>
 <div class="r-stack">
-<p><img data-src="images/add_2.png" class="fragment" width="650" height="400"></p>
-<p><img data-src="images/add_2_pkgdown.png" class="fragment" width="500" height="450"></p>
+<p><img data-src="images/add_2.png" width="650" height="400"></p>
+<p><img data-src="images/add_2_pkgdown.png" width="500" height="450"></p>
 </div>
 </section>
 <section>
@@ -380,10 +380,10 @@ Ben Straub (GSK, Philadelphia, United States)
 <p><img data-src="images/dplyr_ex.png"></p>
 </div><div class="column" style="width:40%;">
 <ul>
-<li class="fragment">#’s used to delineate new example with explanation</li>
-<li class="fragment">Creates a sea of examples</li>
-<li class="fragment">Examples are not navigable on right hand side</li>
-<li class="fragment"><div id="" class="qrcode"></div>
+<li>#’s used to delineate new example with explanation</li>
+<li>Creates a sea of examples</li>
+<li>Examples are not navigable on right hand side</li>
+<li><div id="" class="qrcode"></div>
 <script type="text/javascript">
 (function() {
   var script = document.currentScript;
@@ -409,10 +409,10 @@ Ben Straub (GSK, Philadelphia, United States)
 <p><img data-src="images/admiral_1_2.png"></p>
 </div><div class="column" style="width:40%;">
 <ul>
-<li class="fragment">#’s used to delineate new example with explanation</li>
-<li class="fragment">Creates a sea of examples</li>
-<li class="fragment">Examples are not navigable on right hand side</li>
-<li class="fragment"><div id="" class="qrcode"></div>
+<li>#’s used to delineate new example with explanation</li>
+<li>Creates a sea of examples</li>
+<li>Examples are not navigable on right hand side</li>
+<li><div id="" class="qrcode"></div>
 <script type="text/javascript">
 (function() {
   var script = document.currentScript;
@@ -433,9 +433,9 @@ Ben Straub (GSK, Philadelphia, United States)
 <p><img data-src="images/admiral_1_3.png"></p>
 </div><div class="column" style="width:40%;">
 <ul>
-<li class="fragment">A nice linkable title</li>
-<li class="fragment">Description of example</li>
-<li class="fragment">Right hand side has navigable example</li>
+<li>A nice linkable title</li>
+<li>Description of example</li>
+<li>Right hand side has navigable example</li>
 </ul>
 </div></div>
 </section>
@@ -446,9 +446,9 @@ Ben Straub (GSK, Philadelphia, United States)
 <p><img data-src="images/socery.png" width="295"></p>
 </div><div class="column" style="width:40%;">
 <ul>
-<li class="fragment">roxygen2 package allows for extensions</li>
-<li class="fragment">admiraldev houses the functions in roclet_rdx.R to allow for extensions</li>
-<li class="fragment"><div id="" class="qrcode"></div>
+<li>roxygen2 package allows for extensions</li>
+<li>admiraldev houses the functions in roclet_rdx.R to allow for extensions</li>
+<li><div id="" class="qrcode"></div>
 <script type="text/javascript">
 (function() {
   var script = document.currentScript;
@@ -522,14 +522,14 @@ Ben Straub (GSK, Philadelphia, United States)
 <section id="technical-takeaway" class="slide level2">
 <h2>Technical Takeaway</h2>
 <ul>
-<li class="fragment">New Tags on the Block:
+<li>New Tags on the Block:
 <ul>
-<li class="fragment"><code>@examplesx</code></li>
-<li class="fragment"><code>@caption</code></li>
-<li class="fragment"><code>@info</code></li>
-<li class="fragment"><code>@code</code></li>
+<li><code>@examplesx</code></li>
+<li><code>@caption</code></li>
+<li><code>@info</code></li>
+<li><code>@code</code></li>
 </ul></li>
-<li class="fragment">Get into the purpose, how it works and the processing (briefly!!)</li>
+<li>Get into the purpose, how it works and the processing (briefly!!)</li>
 </ul>
 </section>
 <section id="examplesx---the-examples-section" class="slide level2 smaller">
