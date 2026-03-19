@@ -47,7 +47,7 @@ and harvest information from your R package.
 - Detailed argument definitions and inline examples aid understanding complex functions.
 - In `admiral`, top-notch documentation is a priority.
 - **Problem**: As number of functions and complexity of functions grew, documentation became unwieldy and hard to navigate.
-- **Solution**: Extended `roxygen` package's `roclets` to better display and curate examples.
+- **Solution**: Extended `roxygen2` package's `roclets` to better display and curate examples.
 - This presentation explores the technical details and positive impact on `admiral`'s function examples.
 
 ## R Packages: The Foundation of the R Ecosystem {.smaller}
@@ -56,7 +56,7 @@ and harvest information from your R package.
 - They facilitate code sharing and reuse, expanding R's functionality.
 - **Key components**:
     - R functions in `R/` directory. Documentation in `man/`
-    - Documentation using `roxygen2` comments in `.R` prodce the `.Rd` files.
+    - Documentation using `roxygen2` comments in `.R` produce the `.Rd` files.
     - Dependencies in `DESCRIPTION` file.
     - Few other folders and needed files - Check out: https://r-pkgs.org/
     - {{< qrcode https://r-pkgs.org/ >}}
@@ -328,7 +328,7 @@ This example shows that the \code{letter} argument does not affect the output.
 
 * The admiral R package faced challenges with unwieldy function documentation due to complex and numerous examples.
 
-* To address this, admiral extended roxygen2's roclets by introducing custom Roxygen tags: `@examplesx`, `@caption`, `@info`, and `@code`.
+* To address this, admiral extended roxygen2's roclets by introducing custom roxygen tags: `@examplesx`, `@caption`, `@info`, and `@code`.
 
 * These custom tags enable a structured, user-friendly presentation of examples, providing scaffolding for complex function usage.
 
