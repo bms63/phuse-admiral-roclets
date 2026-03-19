@@ -168,9 +168,16 @@
     "text": "Question\nWhat is the name of the documentation package that could be extended to address admiral’s needs?"
   },
   {
+    "objectID": "phuse-admiral-roclets-pres.html#resources",
+    "href": "phuse-admiral-roclets-pres.html#resources",
+    "title": "Time to Roclet",
+    "section": "Resources",
+    "text": "Resources\n\n\nR Packages\n\n\n    \n\nroxygen2\n\n\n    \n\ndplyr arrange()\n\n\n    \n\nadmiral\n\n\n    \n\nadmiraldev roclet_rdx.R"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "phuse-admiral-roclets",
+    "title": "Time to Roclet! admiral’s use of custom roclets to enhance and extend examples in function documentation",
     "section": "",
     "text": "This is a Quarto site for the PHUSE US Connect 2026 talk titled “Time to Roclet”. It will be presented on Monday, March 26, 2026 in Austin, Texas."
   },
