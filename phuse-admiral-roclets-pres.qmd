@@ -366,5 +366,38 @@ This example shows that the \code{letter} argument does not affect the output.
 
 What is the name of the documentation package that could be extended to address admiral's needs?
 
+## Resources
 
+:::: {.columns}
 
+::: {.column width="19%"}
+**R Packages**
+
+{{< qrcode https://r-pkgs.org/ width=150 height=150 >}}
+:::
+
+::: {.column width="19%"}
+**roxygen2**
+
+{{< qrcode https://roxygen2.r-lib.org/ width=150 height=150 >}}
+:::
+
+::: {.column width="19%"}
+**dplyr arrange()**
+
+{{< qrcode https://dplyr.tidyverse.org/reference/arrange.html width=150 height=150 >}}
+:::
+
+::: {.column width="19%"}
+**admiral**
+
+{{< qrcode https://pharmaverse.github.io/admiral/cran-release/ width=150 height=150 >}}
+:::
+
+::: {.column width="19%"}
+**admiraldev roclet_rdx.R**
+
+{{< qrcode https://github.com/pharmaverse/admiraldev/blob/main/R/roclet_rdx.R width=150 height=150 >}}
+:::
+
+::::
