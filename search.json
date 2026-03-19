@@ -158,7 +158,7 @@
     "href": "phuse-admiral-roclets-pres.html#conclusion",
     "title": "Time to Roclet",
     "section": "Conclusion",
-    "text": "Conclusion\n\nThe admiral R package faced challenges with unwieldy function documentation due to complex and numerous examples.\nTo address this, admiral extended roxygen2’s roclets by introducing custom Roxygen tags: @examplesx, @caption, @info, and @code.\nThese custom tags enable a structured, user-friendly presentation of examples, providing scaffolding for complex function usage.\nThis innovation significantly improved the overall user experience and the quality of admiral’s function documentation."
+    "text": "Conclusion\n\nThe admiral R package faced challenges with unwieldy function documentation due to complex and numerous examples.\nTo address this, admiral extended roxygen2’s roclets by introducing custom Roxygen tags: @examplesx, @caption, @info, and @code.\nThese custom tags enable a structured, user-friendly presentation of examples, providing scaffolding for complex function usage.\nThis innovation significantly improved the overall user experience and the quality of admiral’s function documentation.\nIn this age of AI - high quality documentation will be key to a software products long-term usefulness."
   },
   {
     "objectID": "phuse-admiral-roclets-pres.html#question",
