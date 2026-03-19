@@ -16,51 +16,39 @@ editor: source
 :::
 
 ::: {.column width="60%"}
-::: incremental
 * Do you read the manual first? Show of Hands
 * Do you just dive in and read the manual afterwards? Show of Hands
 * I am a dive in and then read the manual later.  
-:::
 :::
 
 ::::
 
 ## The next 20 minutes...
 
-::: incremental
-
 * Brief intro to the problem. Hint: documentation
 * Infrastructure behind R package documentation
 * admiral R package and its documentation
 * How admiral extended roxygen2 abilities to solve its problem
 
-:::
-
 ## So at the end of 20 minutes...
 
 I hope you walk away with:
-
-::: incremental
 
 * How R documentation is created.
 * How admiral enhanced its documentation to help its users.
 * Better documentation means users are happy but also also AI/LLMs to easier understand
 and harvest information from your R package.
-:::
 
 ## Introduction: The Challenge of R Package Documentation {.smaller}
 
-::: incremental
 - Detailed argument definitions and inline examples aid understanding complex functions.
 - In `admiral`, top-notch documentation is a priority.
 - **Problem**: As number of functions and complexity of functions grew, documentation became unwieldy and hard to navigate.
 - **Solution**: Extended `roxygen` package's `roclets` to better display and curate examples.
 - This presentation explores the technical details and positive impact on `admiral`'s function examples.
-:::
 
 ## R Packages: The Foundation of the R Ecosystem {.smaller}
 
-::: incremental
 - R packages bundle code, data, documentation, and tests in a standardized format.
 - They facilitate code sharing and reuse, expanding R's functionality.
 - **Key components**:
@@ -68,11 +56,9 @@ and harvest information from your R package.
     - Documentation using `roxygen2` comments in `.R` prodce the `.Rd` files.
     - Dependencies in `DESCRIPTION` file.
     - Few other folders and needed files - Check out: [https://r-pkgs.org/](https://r-pkgs.org/)
-:::
 
 ## roxygen2: Streamlining R Docs {.smaller}
 
-::: incremental
 - The `roxygen2` R package simplifies documentation within R packages.
 - Developers write documentation directly alongside function definitions using `#'` comments.
 - **Benefits**:
@@ -80,7 +66,6 @@ and harvest information from your R package.
     - Automatically generates `.Rd` files (standard R documentation) from comments.
 - This system significantly reduces effort, enhancing user understanding of functions.
 - Check out: [https://roxygen2.r-lib.org/](https://roxygen2.r-lib.org/)
-:::
 
 ## Roxygen in an `.R` file
 
