@@ -73,7 +73,7 @@ Here's a brief example of a function `add_numbers()` with its roxygen documentat
 
 ```{r}
 #| echo: TRUE
-#| code-line-numbers: "1-13"
+#| code-line-numbers: "1-13|1|2|3|4|5|6|7|8|9|10|11-13"
 #' Add two numbers together.
 #'
 #' This function takes two numeric inputs and returns their sum.
