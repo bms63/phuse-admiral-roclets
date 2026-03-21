@@ -142,17 +142,18 @@ add_numbers(10, -2)
 
 ## Let's recap!
 
-* You write your R code in `.R` files.
-
-* Above the functions or objects you want to document, you add roxygen comments, which are lines starting with #'.
-
-* Within these roxygen comments, you use roxygen tags (like `@examples`) to specify different parts of the documentation (parameters, return values, examples, etc.).
-
-* You then use the roxygen2 package (typically by running `devtools::document()` or pressing `Ctrl/Cmd + Shift + D` in RStudio) to process these comments.
-
-* `{roxygen2}` reads your `.R` files, extracts the roxygen comments and tags, and then automatically generates the corresponding `.Rd` files in your package's `man/` directory.
-
-* These `.Rd` files are what R's help system uses to display documentation to users.
+```{mermaid}
+%%| fig-width: 9
+%%| fig-height: 4.5
+flowchart TD
+    A["📝 Write R code\nin `.R` files"]
+    A --> B["✍️ Add `#'` roxygen comments\nabove functions / objects"]
+    B --> C["🏷️ Use roxygen tags\n`@param`, `@return`, `@examples`, etc."]
+    C --> D["▶️ Run `devtools::document()`\nor Ctrl/Cmd + Shift + D"]
+    D --> E["⚙️ `{roxygen2}` processes `.R` files\nextracts comments & tags"]
+    E --> F["📄 `.Rd` files auto-generated\nin `man/` directory"]
+    F --> G["📚 R help system displays\ndocumentation to users"]
+```
 
 
 ## Render in R help file and pkgdown
