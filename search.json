@@ -18,7 +18,7 @@
     "href": "phuse-admiral-roclets-pres.html#the-next-20-minutes",
     "title": "Time to Roclet",
     "section": "The next 20 minutes…",
-    "text": "The next 20 minutes…\n\nBrief intro to the problem. Hint: documentation\nInfrastructure behind R package documentation\nadmiral R package and its documentation\nHow admiral extended roxygen2 abilities to solve its problem"
+    "text": "The next 20 minutes…\n\nBrief intro to the problem. Hint: documentation\nInfrastructure behind R package documentation\n{admiral} R package and its documentation\nHow {admiral} extended {roxygen2} abilities to solve its problem"
   },
   {
     "objectID": "phuse-admiral-roclets-pres.html#so-at-the-end-of-20-minutes",
@@ -109,14 +109,14 @@
     "href": "phuse-admiral-roclets-pres.html#how-was-this-done",
     "title": "Time to Roclet",
     "section": "How was this done?",
-    "text": "How was this done?\n\n\n\n\n\nroxygen2 package allows for extensions\nadmiraldev houses the functions in roclet_rdx.R to allow for extensions"
+    "text": "How was this done?\n\n\n\n\n\n{roxygen2} allows for extensions\n{admiraldev} houses the functions in roclet_rdx.R to allow for extensions"
   },
   {
-    "objectID": "phuse-admiral-roclets-pres.html#extending-roxygen",
-    "href": "phuse-admiral-roclets-pres.html#extending-roxygen",
+    "objectID": "phuse-admiral-roclets-pres.html#extending-the-roclet",
+    "href": "phuse-admiral-roclets-pres.html#extending-the-roclet",
     "title": "Time to Roclet",
-    "section": "Extending roxygen",
-    "text": "Extending roxygen\n\n#' A Demo Function\n#'\n#' This function is used to demonstrate the custom tags of the `rdx_roclet()`.\n#'\n#' @param x An argument\n#' @param number A number\n#' @permitted A number\n#' @param letter A letter\n#' @permitted [char_scalar]\n#' @default The first letter of the alphabet\n#' @keywords internal\n#' @examplesx\n#' @info This is the introduction.\n#' @caption A simple example\n#' @info This is a simple example showing the default behaviour.\n#' @code demo_fun(1)\n#' @caption An example with a different letter\n#' @info This example shows that the `letter` argument does not\n#'   affect the output.\n#' @code demo_fun(1, letter = \"b\")\ndemo_fun &lt;- function(x, number = 1, letter = \"a\") 42"
+    "section": "Extending the roclet",
+    "text": "Extending the roclet\n\n#' A Demo Function\n#'\n#' This function is used to demonstrate the custom tags of the `rdx_roclet()`.\n#'\n#' @param x An argument\n#' @param number A number\n#' @permitted A number\n#' @param letter A letter\n#' @permitted [char_scalar]\n#' @default The first letter of the alphabet\n#' @keywords internal\n#' @examplesx\n#' @info This is the introduction.\n#' @caption A simple example\n#' @info This is a simple example showing the default behaviour.\n#' @code demo_fun(1)\n#' @caption An example with a different letter\n#' @info This example shows that the `letter` argument does not\n#'   affect the output.\n#' @code demo_fun(1, letter = \"b\")\ndemo_fun &lt;- function(x, number = 1, letter = \"a\") 42"
   },
   {
     "objectID": "phuse-admiral-roclets-pres.html#eck-a-small-subset-of-the-.rd",

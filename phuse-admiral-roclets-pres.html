@@ -232,8 +232,8 @@ Ben Straub (GSK, Philadelphia, United States)
 <ul>
 <li>Brief intro to the problem. Hint: documentation</li>
 <li>Infrastructure behind R package documentation</li>
-<li>admiral R package and its documentation</li>
-<li>How admiral extended roxygen2 abilities to solve its problem</li>
+<li>{admiral} R package and its documentation</li>
+<li>How {admiral} extended {roxygen2} abilities to solve its problem</li>
 </ul>
 </section>
 <section id="so-at-the-end-of-20-minutes" class="slide level2">
@@ -289,9 +289,7 @@ Ben Straub (GSK, Philadelphia, United States)
 <li>Automatically generates <code>.Rd</code> files (standard R documentation) from comments.</li>
 </ul></li>
 <li>This system significantly reduces effort, enhancing user understanding of functions.</li>
-<li>Check out: https://roxygen2.r-lib.org/
-<ul>
-<li><div id="" class="qrcode"></div>
+<li>Check out: https://roxygen2.r-lib.org/ <div id="" class="qrcode"></div>
 <script type="text/javascript">
 (function() {
   var script = document.currentScript;
@@ -301,7 +299,6 @@ Ben Straub (GSK, Philadelphia, United States)
 })();
 </script>
     </li>
-</ul></li>
 </ul>
 </section>
 <section id="roxygen-in-an-.r-file" class="slide level2">
@@ -416,8 +413,7 @@ Ben Straub (GSK, Philadelphia, United States)
 <ul>
 <li>#’s used to delineate new example with explanation</li>
 <li>Creates a sea of examples</li>
-<li>Examples are not navigable on right hand side</li>
-<li><div id="" class="qrcode"></div>
+<li>Examples are not navigable on right hand side <div id="" class="qrcode"></div>
 <script type="text/javascript">
 (function() {
   var script = document.currentScript;
@@ -445,8 +441,7 @@ Ben Straub (GSK, Philadelphia, United States)
 <ul>
 <li>#’s used to delineate new example with explanation</li>
 <li>Creates a sea of examples</li>
-<li>Examples are not navigable on right hand side</li>
-<li><div id="" class="qrcode"></div>
+<li>Examples are not navigable on right hand side <div id="" class="qrcode"></div>
 <script type="text/javascript">
 (function() {
   var script = document.currentScript;
@@ -480,9 +475,8 @@ Ben Straub (GSK, Philadelphia, United States)
 <p><img data-src="images/socery.png" width="295"></p>
 </div><div class="column" style="width:40%;">
 <ul>
-<li>roxygen2 package allows for extensions</li>
-<li>admiraldev houses the functions in roclet_rdx.R to allow for extensions</li>
-<li><div id="" class="qrcode"></div>
+<li><code>{roxygen2}</code> allows for extensions</li>
+<li><code>{admiraldev}</code> houses the functions in <code>roclet_rdx.R</code> to allow for extensions <div id="" class="qrcode"></div>
 <script type="text/javascript">
 (function() {
   var script = document.currentScript;
@@ -496,8 +490,8 @@ Ben Straub (GSK, Philadelphia, United States)
 </ul>
 </div></div>
 </section>
-<section id="extending-roxygen" class="slide level2">
-<h2>Extending roxygen</h2>
+<section id="extending-the-roclet" class="slide level2">
+<h2>Extending the roclet</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" data-code-line-numbers="1-20|1-11|12|13|14|15|16|17|18|19|20|21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="co">#' A Demo Function</span></span>
 <span id="cb3-2"><a></a><span class="co">#'</span></span>
