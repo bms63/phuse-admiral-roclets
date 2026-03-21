@@ -192,6 +192,9 @@
       margin-right: 0; 
     }
   </style>
+  <script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+  <script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+  <link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -366,14 +369,25 @@ Ben Straub (GSK, Philadelphia, United States)
 </section>
 <section id="lets-recap" class="slide level2">
 <h2>Let’s recap!</h2>
-<ul>
-<li><p>You write your R code in <code>.R</code> files.</p></li>
-<li><p>Above the functions or objects you want to document, you add roxygen comments, which are lines starting with #’.</p></li>
-<li><p>Within these roxygen comments, you use roxygen tags (like <code>@examples</code>) to specify different parts of the documentation (parameters, return values, examples, etc.).</p></li>
-<li><p>You then use the roxygen2 package (typically by running <code>devtools::document()</code> or pressing <code>Ctrl/Cmd + Shift + D</code> in RStudio) to process these comments.</p></li>
-<li><p><code>{roxygen2}</code> reads your <code>.R</code> files, extracts the roxygen comments and tags, and then automatically generates the corresponding <code>.Rd</code> files in your package’s <code>man/</code> directory.</p></li>
-<li><p>These <code>.Rd</code> files are what R’s help system uses to display documentation to users.</p></li>
-</ul>
+<div class="cell" data-reveal="true" data-fig-width="9" data-fig-height="4.5" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    A["📝 Write R code\nin `.R` files"]
+    A --&gt; B["✍️ Add `#'` roxygen comments\nabove functions / objects"]
+    B --&gt; C["🏷️ Use roxygen tags\n`@param`, `@return`, `@examples`, etc."]
+    C --&gt; D["▶️ Run `devtools::document()`\nor Ctrl/Cmd + Shift + D"]
+    D --&gt; E["⚙️ `{roxygen2}` processes `.R` files\nextracts comments &amp; tags"]
+    E --&gt; F["📄 `.Rd` files auto-generated\nin `man/` directory"]
+    F --&gt; G["📚 R help system displays\ndocumentation to users"]
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 </section>
 <section id="render-in-r-help-file-and-pkgdown" class="slide level2">
 <h2>Render in R help file and pkgdown</h2>
