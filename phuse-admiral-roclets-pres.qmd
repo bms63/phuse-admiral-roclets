@@ -140,6 +140,20 @@ add_numbers(10, -2)
 
 * I do not recommend editing these by hand - ever - unless you want pain!
 
+## Let's recap!
+
+* You write your R code in `.R` files.
+
+* Above the functions or objects you want to document, you add roxygen comments, which are lines starting with #'.
+
+* Within these roxygen comments, you use roxygen tags (like `@examples`) to specify different parts of the documentation (parameters, return values, examples, etc.).
+
+* You then use the roxygen2 package (typically by running `devtools::document()` or pressing `Ctrl/Cmd + Shift + D` in RStudio) to process these comments.
+
+* `{roxygen2}` reads your `.R` files, extracts the roxygen comments and tags, and then automatically generates the corresponding `.Rd` files in your package's `man/` directory.
+
+* These `.Rd` files are what R's help system uses to display documentation to users.
+
 
 ## Render in R help file and pkgdown
 
