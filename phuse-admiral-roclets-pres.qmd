@@ -4,6 +4,7 @@ subtitle: "admiral’s use of custom roclets to enhance and extend examples in f
 author: "Ben Straub (GSK, Philadelphia, United States)"
 format:
   revealjs:
+    footer: "[https://bms63.github.io/phuse-admiral-roclets/](https://bms63.github.io/phuse-admiral-roclets/)"
     theme: solarized
     code-block-max-height: "400px" # Makes code blocks scrollable if content exceeds this height
     scrollable: true # Enables vertical scrolling for general slide content if it overflows
@@ -188,7 +189,7 @@ add_numbers(10, -2)
 ::: {.column width="40%"}
 * #'s used to delineate new example with explanation
 * Creates a sea of examples
-* [`arrange()](https://dplyr.tidyverse.org/reference/arrange.html) Examples are not navigable on right hand side 
+* [`arrange()`](https://dplyr.tidyverse.org/reference/arrange.html) Examples are not navigable on right hand side 
   {{< qrcode https://dplyr.tidyverse.org/reference/arrange.html >}}  
 :::
 
@@ -239,7 +240,7 @@ add_numbers(10, -2)
 :::: {.columns}
 
 ::: {.column width="60%"}
-![](images/socery.png){width="295px"}
+![](images/socery.png){width="500px"}
 :::
 
 ::: {.column width="40%"}
