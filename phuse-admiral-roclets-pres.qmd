@@ -20,9 +20,11 @@ editor: source
 :::
 
 ::: {.column width="60%"}
+::: {.incremental}
 * Do you read the manual first? Show of Hands
 * Do you just dive in and read the manual afterwards? Show of Hands
 * I am a dive in and then read the manual later.  
+:::
 :::
 
 ::::
@@ -58,7 +60,6 @@ and harvest information from your R package.
 - **Key components**:
     - R functions in `R/` directory. Documentation in `man/`
     - Documentation using `roxygen2` comments in `.R` prodce the `.Rd` files.
-    - Dependencies in `DESCRIPTION` file.
     - Few other folders and needed files - Check out: https://r-pkgs.org/
     - {{< qrcode https://r-pkgs.org/ >}}
 
