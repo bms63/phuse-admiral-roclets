@@ -147,13 +147,13 @@ add_numbers(10, -2)
 %%| fig-width: 9
 %%| fig-height: 4.5
 flowchart TD
-    A["📝 Write R code\nin .R files"]
-    A --> B["✍️ Add #' roxygen comments\nabove functions / objects"]
-    B --> C["🏷️ Use roxygen tags\n@param, @return, @examples, etc."]
-    C --> D["▶️ Run devtools::document()\nor Ctrl/Cmd + Shift + D"]
-    D --> E["⚙️ {roxygen2} processes .R files\nextracts comments & tags"]
-    E --> F["📄 .Rd files auto-generated\nin man/ directory"]
-    F --> G["📚 R help system displays\ndocumentation to users"]
+    A["📝 Write R code<br/>in .R files"]
+    A --> B["✍️ Add #' roxygen comments<br/>above functions / objects"]
+    B --> C["🏷️ Use roxygen tags<br/>@param, @return, @examples, etc."]
+    C --> D["▶️ Run devtools::document()<br/>or Ctrl/Cmd + Shift + D"]
+    D --> E["⚙️ {roxygen2} processes .R files<br/>extracts comments &amp; tags"]
+    E --> F["📄 .Rd files auto-generated<br/>in man/ directory"]
+    F --> G["📚 R help system displays<br/>documentation to users"]
 ```
 
 
