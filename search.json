@@ -39,7 +39,7 @@
     "href": "phuse-admiral-roclets-pres.html#r-packages-the-foundation-of-the-r-ecosystem",
     "title": "Time to Roclet",
     "section": "R Packages: The Foundation of the R Ecosystem",
-    "text": "R Packages: The Foundation of the R Ecosystem\n\nR packages bundle code, data, documentation, and tests in a standardized format.\nThey facilitate code sharing and reuse, expanding R’s functionality.\nKey components:\n\nR functions in R/ directory. Documentation in man/\nDocumentation using roxygen2 comments in .R prodce the .Rd files.\nDependencies in DESCRIPTION file.\nFew other folders and needed files - Check out: https://r-pkgs.org/"
+    "text": "R Packages: The Foundation of the R Ecosystem\n\nR packages bundle code, data, documentation, and tests in a standardized format.\nThey facilitate code sharing and reuse, expanding R’s functionality.\nKey components:\n\nR functions in R/ directory. Documentation in man/\nDocumentation using roxygen2 comments in .R prodce the .Rd files.\nFew other folders and needed files - Check out: https://r-pkgs.org/"
   },
   {
     "objectID": "phuse-admiral-roclets-pres.html#roxygen2-streamlining-r-docs",
