@@ -188,13 +188,13 @@ add_numbers(10, -2)
 ::: {.column width="40%"}
 * #'s used to delineate new example with explanation
 * Creates a sea of examples
-* Examples are not navigable on right hand side 
+* [`arrange()](https://dplyr.tidyverse.org/reference/arrange.html) Examples are not navigable on right hand side 
   {{< qrcode https://dplyr.tidyverse.org/reference/arrange.html >}}  
 :::
 
 ::::
 
-# `{admiral}` - following in the footsteps
+# `{admiral}` - in the footsteps...
 
 ## `{admiral}` 1.2.0
 
@@ -207,8 +207,8 @@ add_numbers(10, -2)
 ::: {.column width="40%"}
 * #'s used to delineate new example with explanation
 * Creates a sea of examples
-* Examples are not navigable on right hand side 
-  {{< qrcode https://pharmaverse.github.io/admiral/cran-release/ >}}  
+* [`derive_vars_dt()`](https://pharmaverse.github.io/admiral/v1.2.0/reference/derive_vars_dt.html) Examples are not navigable on right hand side 
+  {{< qrcode https://pharmaverse.github.io/admiral/v1.2.0/reference/derive_vars_dt.html >}}  
 :::
 
 ::::
@@ -226,6 +226,10 @@ add_numbers(10, -2)
 * A nice linkable title
 * Description of example 
 * Right hand side has navigable example
+* [`derive_vars_dt()`](https://pharmaverse.github.io/admiral/cran-release/reference/derive_vars_dt.html) Examples are not navigable on right hand side 
+  {{< qrcode https://pharmaverse.github.io/admiral/cran-release/reference/derive_vars_dt.html >}}  
+
+
 :::
 
 ::::
