@@ -1,9 +1,18 @@
-In the roxygen2 package, a roclet is an object responsible for generating a specific type of output based on the roxygen comments embedded in your R code. It essentially acts as a specialized processor that takes the parsed roxygen tags and transforms them into a particular output format.github.com
+In the roxygen2 package, a roclet is an object responsible for generating a specific 
+type of output based on the roxygen comments embedded in your R code. It essentially 
+acts as a specialized processor that takes the parsed roxygen tags and transforms them 
+into a particular output format.github.com
 
 Key aspects of roclets in roxygen2 include:
   
-  Specific Output Generation Roclets are designed to create distinct components of an R package's documentation or metadata. For example, the rd_roclet is a core roclet that produces the .Rd files, which R uses for function documentation. Another important one is the namespace_roclet, which automates the creation of the NAMESPACE file, controlling a package's imports and exports.
+  Specific Output Generation Roclets are designed to create distinct components 
+  of an R package's documentation or metadata. For example, the rd_roclet is a 
+  core roclet that produces the .Rd files, which R uses for function documentation. 
+  Another important one is the namespace_roclet, which automates the creation 
+  of the NAMESPACE file, controlling a package's imports and exports.
 
-Extensibility roxygen2 allows users to create their own custom roclets. This extensibility means you can define new @tags in your roxygen comments and then write a roclet to process these tags to generate custom output, or even to perform actions not natively supported by roxygen2.
+Extensibility roxygen2 allows users to create their own custom roclets. This extensibility 
+means you can define new @tags in your roxygen comments and then write a roclet to process 
+these tags to generate custom output, or even to perform actions not natively supported by roxygen2.
 
 Processing Workflow A roclet typically follows a defined workflow, which can include steps like roclet_preprocess, roclet_process, roclet_output, and roclet_clean, handling the different stages from parsing roxygen blocks to writing files to disk.r-lib.org +6

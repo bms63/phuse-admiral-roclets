@@ -21,8 +21,8 @@ editor: source
 
 ::: {.column width="60%"}
 ::: {.incremental}
-* Do you read the manual first? Show of Hands
-* Do you just dive in and read the manual afterwards? Show of Hands
+* Do you read the manual first?  
+* Do you just dive in and read the manual afterwards?  
 * I am a dive in and then read the manual later.  
 :::
 :::
@@ -33,8 +33,8 @@ editor: source
 
 * Brief intro to the problem. Hint: documentation
 * Infrastructure behind R package documentation
-* {admiral} R package and its documentation
-* How {admiral} extended {roxygen2} abilities to solve its problem
+* `{admiral}` R package and its documentation
+* How `{admiral}` used `{roxygen2}` extension abilities to solve its problem
 
 ## So at the end of 20 minutes...
 
@@ -45,13 +45,24 @@ I hope you walk away with:
 * Better documentation means users are happy but also also AI/LLMs to easier understand
 and harvest information from your R package.
 
-## Introduction: The Challenge of R Package Documentation {.smaller}
+## What is the `admiral` R package?
+
+* To provide an open source, modularized toolbox that enables the pharmaceutical programming community to develop ADaM datasets in R.
+
+* The package is available from CRAN and can be installed with:
+`install.packages("admiral")`
+
+* Users guides for doing BDS, OCCDS, TTE, ADSL, ICE, Date/Times and more available.
+
+* A sea of documentation!!
+
+## Introduction: A Sea Documentation {.smaller}
 
 - Detailed argument definitions and inline examples aid understanding complex functions.
-- In `admiral`, top-notch documentation is a priority.
+- In `{admiral}`, top-notch documentation is a priority.
 - **Problem**: As number of functions and complexity of functions grew, documentation became unwieldy and hard to navigate.
-- **Solution**: Extended `roxygen` package's `roclets` to better display and curate examples.
-- This presentation explores the technical details and positive impact on `admiral`'s function examples.
+- **Solution**: Extended `{roxygen2}` package's `roclets` to better display and curate examples.
+- This presentation explores the technical details and positive impact on `{admiral}`'s function examples.
 
 ## R Packages: The Foundation of the R Ecosystem {.smaller}
 
@@ -60,10 +71,10 @@ and harvest information from your R package.
 - **Key components**:
     - R functions in `R/` directory. Documentation in `man/`
     - Documentation using `roxygen2` comments in `.R` produce the `.Rd` files.
-    - Few other folders and needed files - Check out: https://r-pkgs.org/
+    - Few other folders and needed files - Check out: [https://r-pkgs.org/](https://r-pkgs.org/)
     - {{< qrcode https://r-pkgs.org/ >}}
 
-## roxygen2: Streamlining R Docs {.smaller}
+## `roxygen2`: Streamlining R Docs {.smaller}
 
 - The `roxygen2` R package simplifies documentation within R packages.
 - Developers write documentation directly alongside function definitions using `#'` comments.
@@ -71,7 +82,7 @@ and harvest information from your R package.
     - Keeps code and documentation co-located, making updates efficient.
     - Automatically generates `.Rd` files (standard R documentation) from comments.
 - This system significantly reduces effort, enhancing user understanding of functions.
-- Check out: https://roxygen2.r-lib.org/
+- Check out: [https://roxygen2.r-lib.org/](https://roxygen2.r-lib.org/)
   {{< qrcode https://roxygen2.r-lib.org/ >}}
 
 ## Roxygen in an `.R` file
@@ -143,25 +154,15 @@ add_numbers(10, -2)
 
 ## Let's recap!
 
-```{mermaid}
-%%| fig-width: 9
-%%| fig-height: 5.5
-block-beta
-  columns 7
-  space:6 G["📚 R help system displays\ndocumentation to users"]:1
-  space:5 F["📄 .Rd files auto-generated\nin man/ directory"]:1
-  space:4 E["⚙️ {roxygen2} processes .R files\nextracts comments & tags"]:1
-  space:3 D["▶️ Run devtools::document()\nor Ctrl/Cmd + Shift + D"]:1
-  space:2 C["🏷️ Use roxygen tags\n@param, @return, @examples, etc."]:1
-  space:1 B["✍️ Add #' roxygen comments\nabove functions / objects"]:1
-  A["📝 Write R code\nin .R files"]:1
-  A --> B
-  B --> C
-  C --> D
-  D --> E
-  E --> F
-  F --> G
-```
+::: {.incremental}
+  * 📝 Write R code in `.R` files
+  * ✍️ Add `#'` roxygen comments above functions objects
+  * 🏷️ Use roxygen tags `@param`, `@return`, `@examples`, etc:
+  * ▶️ Run `devtools::document()` or Ctrl/Cmd + Shift + D
+  * ⚙️ `{roxygen2}`processes `.R` files extracts comments & tags
+  * 📄 `.Rd` files auto-generated in `man/` directory
+  * 📚 R help system displays documentation to users
+:::
 
 
 ## Render in R help file and pkgdown
