@@ -70,6 +70,13 @@
     "text": "Don’t touch!\n\n\nI do not recommend editing these by hand - ever - unless you want pain!"
   },
   {
+    "objectID": "phuse-admiral-roclets-pres.html#lets-recap",
+    "href": "phuse-admiral-roclets-pres.html#lets-recap",
+    "title": "Time to Roclet",
+    "section": "Let’s recap!",
+    "text": "Let’s recap!\n\nYou write your R code in .R files.\nAbove the functions or objects you want to document, you add roxygen comments, which are lines starting with #’.\nWithin these roxygen comments, you use roxygen tags (like @examples) to specify different parts of the documentation (parameters, return values, examples, etc.).\nYou then use the roxygen2 package (typically by running devtools::document() or pressing Ctrl/Cmd + Shift + D in RStudio) to process these comments.\n{roxygen2} reads your .R files, extracts the roxygen comments and tags, and then automatically generates the corresponding .Rd files in your package’s man/ directory.\nThese .Rd files are what R’s help system uses to display documentation to users."
+  },
+  {
     "objectID": "phuse-admiral-roclets-pres.html#render-in-r-help-file-and-pkgdown",
     "href": "phuse-admiral-roclets-pres.html#render-in-r-help-file-and-pkgdown",
     "title": "Time to Roclet",

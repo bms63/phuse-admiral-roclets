@@ -364,6 +364,17 @@ Ben Straub (GSK, Philadelphia, United States)
 <li>I do not recommend editing these by hand - ever - unless you want pain!</li>
 </ul>
 </section>
+<section id="lets-recap" class="slide level2">
+<h2>Let’s recap!</h2>
+<ul>
+<li><p>You write your R code in <code>.R</code> files.</p></li>
+<li><p>Above the functions or objects you want to document, you add roxygen comments, which are lines starting with #’.</p></li>
+<li><p>Within these roxygen comments, you use roxygen tags (like <code>@examples</code>) to specify different parts of the documentation (parameters, return values, examples, etc.).</p></li>
+<li><p>You then use the roxygen2 package (typically by running <code>devtools::document()</code> or pressing <code>Ctrl/Cmd + Shift + D</code> in RStudio) to process these comments.</p></li>
+<li><p><code>{roxygen2}</code> reads your <code>.R</code> files, extracts the roxygen comments and tags, and then automatically generates the corresponding <code>.Rd</code> files in your package’s <code>man/</code> directory.</p></li>
+<li><p>These <code>.Rd</code> files are what R’s help system uses to display documentation to users.</p></li>
+</ul>
+</section>
 <section id="render-in-r-help-file-and-pkgdown" class="slide level2">
 <h2>Render in R help file and pkgdown</h2>
 <div class="r-stack">
