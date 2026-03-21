@@ -192,9 +192,6 @@
       margin-right: 0; 
     }
   </style>
-  <script src="site_libs/quarto-diagram/mermaid.min.js"></script>
-  <script src="site_libs/quarto-diagram/mermaid-init.js"></script>
-  <link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -220,8 +217,10 @@ Ben Straub (GSK, Philadelphia, United States)
 <p><img data-src="images/rtfm.png"></p>
 </div><div class="column" style="width:60%;">
 <ul>
-<li class="fragment">Do you read the manual first? Show of Hands</li>
-<li class="fragment">Do you just dive in and read the manual afterwards? Show of Hands</li>
+<li class="fragment">Do you read the manual first?<br>
+</li>
+<li class="fragment">Do you just dive in and read the manual afterwards?<br>
+</li>
 <li class="fragment">I am a dive in and then read the manual later.<br>
 </li>
 </ul>
@@ -232,8 +231,8 @@ Ben Straub (GSK, Philadelphia, United States)
 <ul>
 <li>Brief intro to the problem. Hint: documentation</li>
 <li>Infrastructure behind R package documentation</li>
-<li>{admiral} R package and its documentation</li>
-<li>How {admiral} extended {roxygen2} abilities to solve its problem</li>
+<li><code>{admiral}</code> R package and its documentation</li>
+<li>How <code>{admiral}</code> used <code>{roxygen2}</code> extension abilities to solve its problem</li>
 </ul>
 </section>
 <section id="so-at-the-end-of-20-minutes" class="slide level2">
@@ -245,14 +244,23 @@ Ben Straub (GSK, Philadelphia, United States)
 <li>Better documentation means users are happy but also also AI/LLMs to easier understand and harvest information from your R package.</li>
 </ul>
 </section>
-<section id="introduction-the-challenge-of-r-package-documentation" class="slide level2 smaller">
-<h2>Introduction: The Challenge of R Package Documentation</h2>
+<section id="what-is-the-admiral-r-package" class="slide level2">
+<h2>What is the <code>admiral</code> R package?</h2>
+<ul>
+<li><p>To provide an open source, modularized toolbox that enables the pharmaceutical programming community to develop ADaM datasets in R.</p></li>
+<li><p>The package is available from CRAN and can be installed with: <code>install.packages("admiral")</code></p></li>
+<li><p>Users guides for doing BDS, OCCDS, TTE, ADSL, ICE, Date/Times and more available.</p></li>
+<li><p>A sea of documentation!!</p></li>
+</ul>
+</section>
+<section id="introduction-a-sea-documentation" class="slide level2 smaller">
+<h2>Introduction: A Sea Documentation</h2>
 <ul>
 <li>Detailed argument definitions and inline examples aid understanding complex functions.</li>
-<li>In <code>admiral</code>, top-notch documentation is a priority.</li>
+<li>In <code>{admiral}</code>, top-notch documentation is a priority.</li>
 <li><strong>Problem</strong>: As number of functions and complexity of functions grew, documentation became unwieldy and hard to navigate.</li>
-<li><strong>Solution</strong>: Extended <code>roxygen</code> package’s <code>roclets</code> to better display and curate examples.</li>
-<li>This presentation explores the technical details and positive impact on <code>admiral</code>’s function examples.</li>
+<li><strong>Solution</strong>: Extended <code>{roxygen2}</code> package’s <code>roclets</code> to better display and curate examples.</li>
+<li>This presentation explores the technical details and positive impact on <code>{admiral}</code>’s function examples.</li>
 </ul>
 </section>
 <section id="r-packages-the-foundation-of-the-r-ecosystem" class="slide level2 smaller">
@@ -264,7 +272,7 @@ Ben Straub (GSK, Philadelphia, United States)
 <ul>
 <li>R functions in <code>R/</code> directory. Documentation in <code>man/</code></li>
 <li>Documentation using <code>roxygen2</code> comments in <code>.R</code> produce the <code>.Rd</code> files.</li>
-<li>Few other folders and needed files - Check out: https://r-pkgs.org/</li>
+<li>Few other folders and needed files - Check out: <a href="https://r-pkgs.org/">https://r-pkgs.org/</a></li>
 <li><div id="" class="qrcode"></div>
 <script type="text/javascript">
 (function() {
@@ -279,7 +287,7 @@ Ben Straub (GSK, Philadelphia, United States)
 </ul>
 </section>
 <section id="roxygen2-streamlining-r-docs" class="slide level2 smaller">
-<h2>roxygen2: Streamlining R Docs</h2>
+<h2><code>roxygen2</code>: Streamlining R Docs</h2>
 <ul>
 <li>The <code>roxygen2</code> R package simplifies documentation within R packages.</li>
 <li>Developers write documentation directly alongside function definitions using <code>#'</code> comments.</li>
@@ -289,7 +297,7 @@ Ben Straub (GSK, Philadelphia, United States)
 <li>Automatically generates <code>.Rd</code> files (standard R documentation) from comments.</li>
 </ul></li>
 <li>This system significantly reduces effort, enhancing user understanding of functions.</li>
-<li>Check out: https://roxygen2.r-lib.org/ <div id="" class="qrcode"></div>
+<li>Check out: <a href="https://roxygen2.r-lib.org/">https://roxygen2.r-lib.org/</a> <div id="" class="qrcode"></div>
 <script type="text/javascript">
 (function() {
   var script = document.currentScript;
@@ -365,32 +373,15 @@ Ben Straub (GSK, Philadelphia, United States)
 </section>
 <section id="lets-recap" class="slide level2">
 <h2>Let’s recap!</h2>
-<div class="cell" data-reveal="true" data-fig-width="9" data-fig-height="5.5" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">block-beta
-  columns 7
-  space:6 G["📚 R help system displays\ndocumentation to users"]:1
-  space:5 F["📄 .Rd files auto-generated\nin man/ directory"]:1
-  space:4 E["⚙️ {roxygen2} processes .R files\nextracts comments &amp; tags"]:1
-  space:3 D["▶️ Run devtools::document()\nor Ctrl/Cmd + Shift + D"]:1
-  space:2 C["🏷️ Use roxygen tags\n@param, @return, @examples, etc."]:1
-  space:1 B["✍️ Add #' roxygen comments\nabove functions / objects"]:1
-  A["📝 Write R code\nin .R files"]:1
-  A --&gt; B
-  B --&gt; C
-  C --&gt; D
-  D --&gt; E
-  E --&gt; F
-  F --&gt; G
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
+<ul>
+<li class="fragment">📝 Write R code in <code>.R</code> files</li>
+<li class="fragment">✍️ Add <code>#'</code> roxygen comments above functions objects</li>
+<li class="fragment">🏷️ Use roxygen tags <code>@param</code>, <code>@return</code>, <code>@examples</code>, etc:</li>
+<li class="fragment">▶️ Run <code>devtools::document()</code> or Ctrl/Cmd + Shift + D</li>
+<li class="fragment">⚙️ <code>{roxygen2}</code>processes <code>.R</code> files extracts comments &amp; tags</li>
+<li class="fragment">📄 <code>.Rd</code> files auto-generated in <code>man/</code> directory</li>
+<li class="fragment">📚 R help system displays documentation to users</li>
+</ul>
 </section>
 <section id="render-in-r-help-file-and-pkgdown" class="slide level2">
 <h2>Render in R help file and pkgdown</h2>
