@@ -33,8 +33,8 @@ editor: source
 
 * Brief intro to the problem. Hint: documentation
 * Infrastructure behind R package documentation
-* admiral R package and its documentation
-* How admiral extended roxygen2 abilities to solve its problem
+* {admiral} R package and its documentation
+* How {admiral} extended {roxygen2} abilities to solve its problem
 
 ## So at the end of 20 minutes...
 
@@ -72,7 +72,7 @@ and harvest information from your R package.
     - Automatically generates `.Rd` files (standard R documentation) from comments.
 - This system significantly reduces effort, enhancing user understanding of functions.
 - Check out: https://roxygen2.r-lib.org/
-    - {{< qrcode https://roxygen2.r-lib.org/ >}}
+  {{< qrcode https://roxygen2.r-lib.org/ >}}
 
 ## Roxygen in an `.R` file
 
@@ -181,7 +181,7 @@ flowchart TD
 * #'s used to delineate new example with explanation
 * Creates a sea of examples
 * Examples are not navigable on right hand side 
-* {{< qrcode https://dplyr.tidyverse.org/reference/arrange.html >}}  
+  {{< qrcode https://dplyr.tidyverse.org/reference/arrange.html >}}  
 :::
 
 ::::
@@ -200,7 +200,7 @@ flowchart TD
 * #'s used to delineate new example with explanation
 * Creates a sea of examples
 * Examples are not navigable on right hand side 
-* {{< qrcode https://pharmaverse.github.io/admiral/cran-release/ >}}  
+  {{< qrcode https://pharmaverse.github.io/admiral/cran-release/ >}}  
 :::
 
 ::::
@@ -231,16 +231,16 @@ flowchart TD
 :::
 
 ::: {.column width="40%"}
-* roxygen2 package allows for extensions
-* admiraldev houses the functions in roclet_rdx.R to allow for extensions
-* {{< qrcode https://github.com/pharmaverse/admiraldev/blob/main/R/roclet_rdx.R >}}  
+* `{roxygen2}` allows for extensions 
+* `{admiraldev}` houses the functions in `roclet_rdx.R` to allow for extensions
+  {{< qrcode https://github.com/pharmaverse/admiraldev/blob/main/R/roclet_rdx.R >}}  
 :::
 
 ::::
 
 
 
-## Extending roxygen
+## Extending the roclet
 
 ```{r}
 #| echo: TRUE
