@@ -143,9 +143,9 @@ add_numbers(10, -2)
 ## Render in R help file and pkgdown
 
 ::: {.r-stack}
-![](images/add_2.png){width="650" height="400"}
+![](images/add_2.png){.fragment width="650" height="400"}
 
-![](images/add_2_pkgdown.png){width="500" height="450"}
+![](images/add_2_pkgdown.png){.fragment width="500" height="450"}
 :::
 
 # dplyr - a package to follow!
