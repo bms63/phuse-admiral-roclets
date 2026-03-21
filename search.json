@@ -74,7 +74,7 @@
     "href": "phuse-admiral-roclets-pres.html#lets-recap",
     "title": "Time to Roclet",
     "section": "Let’s recap!",
-    "text": "Let’s recap!\n\n\n\n\n\nflowchart TD\n    A[\"📝 Write R code&lt;br/&gt;in .R files\"]\n    A --&gt; B[\"✍️ Add #' roxygen comments&lt;br/&gt;above functions / objects\"]\n    B --&gt; C[\"🏷️ Use roxygen tags&lt;br/&gt;@param, @return, @examples, etc.\"]\n    C --&gt; D[\"▶️ Run devtools::document()&lt;br/&gt;or Ctrl/Cmd + Shift + D\"]\n    D --&gt; E[\"⚙️ {roxygen2} processes .R files&lt;br/&gt;extracts comments &amp; tags\"]\n    E --&gt; F[\"📄 .Rd files auto-generated&lt;br/&gt;in man/ directory\"]\n    F --&gt; G[\"📚 R help system displays&lt;br/&gt;documentation to users\"]"
+    "text": "Let’s recap!\n\n\n\n\n\nblock-beta\n  columns 7\n  space:6 G[\"📚 R help system displays\\ndocumentation to users\"]:1\n  space:5 F[\"📄 .Rd files auto-generated\\nin man/ directory\"]:1\n  space:4 E[\"⚙️ {roxygen2} processes .R files\\nextracts comments & tags\"]:1\n  space:3 D[\"▶️ Run devtools::document()\\nor Ctrl/Cmd + Shift + D\"]:1\n  space:2 C[\"🏷️ Use roxygen tags\\n@param, @return, @examples, etc.\"]:1\n  space:1 B[\"✍️ Add #' roxygen comments\\nabove functions / objects\"]:1\n  A[\"📝 Write R code\\nin .R files\"]:1\n  A --&gt; B\n  B --&gt; C\n  C --&gt; D\n  D --&gt; E\n  E --&gt; F\n  F --&gt; G"
   },
   {
     "objectID": "phuse-admiral-roclets-pres.html#render-in-r-help-file-and-pkgdown",

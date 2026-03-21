@@ -368,19 +368,26 @@ Ben Straub (GSK, Philadelphia, United States)
 </section>
 <section id="lets-recap" class="slide level2">
 <h2>Let’s recap!</h2>
-<div class="cell" data-reveal="true" data-fig-width="9" data-fig-height="4.5" data-layout-align="default">
+<div class="cell" data-reveal="true" data-fig-width="9" data-fig-height="5.5" data-layout-align="default">
 <div class="cell-output-display">
 <div>
 <p></p><figure class=""><p></p>
 <div>
-<pre class="mermaid mermaid-js">flowchart TD
-    A["📝 Write R code&lt;br/&gt;in .R files"]
-    A --&gt; B["✍️ Add #' roxygen comments&lt;br/&gt;above functions / objects"]
-    B --&gt; C["🏷️ Use roxygen tags&lt;br/&gt;@param, @return, @examples, etc."]
-    C --&gt; D["▶️ Run devtools::document()&lt;br/&gt;or Ctrl/Cmd + Shift + D"]
-    D --&gt; E["⚙️ {roxygen2} processes .R files&lt;br/&gt;extracts comments &amp;amp; tags"]
-    E --&gt; F["📄 .Rd files auto-generated&lt;br/&gt;in man/ directory"]
-    F --&gt; G["📚 R help system displays&lt;br/&gt;documentation to users"]
+<pre class="mermaid mermaid-js">block-beta
+  columns 7
+  space:6 G["📚 R help system displays\ndocumentation to users"]:1
+  space:5 F["📄 .Rd files auto-generated\nin man/ directory"]:1
+  space:4 E["⚙️ {roxygen2} processes .R files\nextracts comments &amp; tags"]:1
+  space:3 D["▶️ Run devtools::document()\nor Ctrl/Cmd + Shift + D"]:1
+  space:2 C["🏷️ Use roxygen tags\n@param, @return, @examples, etc."]:1
+  space:1 B["✍️ Add #' roxygen comments\nabove functions / objects"]:1
+  A["📝 Write R code\nin .R files"]:1
+  A --&gt; B
+  B --&gt; C
+  C --&gt; D
+  D --&gt; E
+  E --&gt; F
+  F --&gt; G
 </pre>
 </div>
 <p></p></figure><p></p>
