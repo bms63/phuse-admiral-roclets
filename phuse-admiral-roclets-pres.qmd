@@ -41,8 +41,8 @@ editor: source
 
 I hope you walk away with:
 
-* How R documentation is created.
-* How admiral enhanced its documentation to help its users.
+* How R package documentation is created.
+* How admiral package documentation is created.
 * Better documentation means users are happy but also allows AI/LLMs to easier understand
 and harvest information from your R package.
 
