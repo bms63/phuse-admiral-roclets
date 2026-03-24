@@ -46,22 +46,22 @@ I hope you walk away with:
 * Better documentation means users are happy but also allows AI/LLMs to easier understand
 and harvest information from your R package.
 
-## What is the `admiral` R package?
+## What is `{admiral}`?
 
-* To provide an open source, modularized toolbox that enables the pharmaceutical programming community to develop ADaM datasets in R.
+* Provides an open source, modularized toolbox that enables the pharmaceutical programming community to develop ADaM datasets in R.
 
 * The package is available from CRAN and can be installed with:
 `install.packages("admiral")`
 
 * Users guides for doing BDS, OCCDS, TTE, ADSL, ICE, Date/Times and more available.
 
-* A sea of documentation!!
+* A sea of function documentation!!
 
-## Introduction: A Sea Documentation {.smaller}
+## Introduction: A Sea of Documentation {.smaller}
 
 - Detailed argument definitions and inline examples aid understanding complex functions.
-- In `{admiral}`, top-notch documentation is a priority.
-- **Problem**: As number of functions and complexity of functions grew, documentation became unwieldy and hard to navigate.
+- In `{admiral}`, we love lots of documentation.
+- **Problem**: As number of functions and complexity of functions grew, documentation examples became unwieldy and hard to navigate.
 - **Solution**: Extended `{roxygen2}` package's `roclets` to better display and curate examples.
 - This presentation explores the technical details and positive impact on `{admiral}`'s function examples.
 
@@ -71,11 +71,11 @@ and harvest information from your R package.
 - They facilitate code sharing and reuse, expanding R's functionality.
 - **Key components**:
     - R functions in `R/` directory. Documentation in `man/`
-    - Documentation using `roxygen2` comments in `.R` produce the `.Rd` files.
+    - Documentation using `roxygen` comments in `.R` produce the `.Rd` files.
     - Few other folders and needed files - Check out: [https://r-pkgs.org/](https://r-pkgs.org/)
     - {{< qrcode https://r-pkgs.org/ >}}
 
-## `roxygen2`: Streamlining R Docs {.smaller}
+## `{roxygen2}`: Streamlining R Docs {.smaller}
 
 - The `roxygen2` R package simplifies documentation within R packages.
 - Developers write documentation directly alongside function definitions using `#'` comments.
@@ -86,7 +86,7 @@ and harvest information from your R package.
 - Check out: [https://roxygen2.r-lib.org/](https://roxygen2.r-lib.org/)
   {{< qrcode https://roxygen2.r-lib.org/ >}}
 
-## Roxygen in an `.R` file
+## Roxygen comments in an `.R` file
 
 Here's a brief example of a function `add_numbers()` with its roxygen documentation:
 
@@ -108,7 +108,7 @@ add_numbers <- function(x, y) {
 }
 ```
 
-## Documentation Structure - `.Rd`
+## Documentation Files:  `.Rd`
 
 ```{r, eval = FALSE}
 #| echo: TRUE
