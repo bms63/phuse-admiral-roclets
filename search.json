@@ -144,28 +144,28 @@
     "href": "phuse-admiral-roclets-pres.html#examplesx---the-examples-section",
     "title": "Time to Roclet",
     "section": "@examplesx - The Examples Section",
-    "text": "@examplesx - The Examples Section\nPurpose: Marks the beginning of the entire examples section in Roxygen documentation, serving as a structural tag.\nHow it Works: Signals the transform_examplesx() function to start processing custom Roxygen tags for examples.\nProcessing: The transform_examplesx() function orchestrates the grouping of @caption, @info, and @code tags. It executes R code from @code, captures output, handles expected conditions, and combines these into a cohesive examplex tag. It also cleanses output of problematic Unicode characters to prevent LaTeX errors."
+    "text": "@examplesx - The Examples Section\nPurpose: Marks the start of the entire examples section.\nHow it Works: Triggers transform_examplesx() to begin processing the custom tags that follow.\nProcessing: Groups @caption, @info, and @code tags into structured examples; cleans up special characters to avoid formatting issues in the final docs."
   },
   {
     "objectID": "phuse-admiral-roclets-pres.html#caption---example-title",
     "href": "phuse-admiral-roclets-pres.html#caption---example-title",
     "title": "Time to Roclet",
     "section": "@caption - Example Title",
-    "text": "@caption - Example Title\nPurpose: Provides a descriptive title or caption for an individual example within the examples section.\nHow it Works: Each @caption tag initiates a new example block, with the text following it becoming the title.\nProcessing: The transform_examplesx() function collects the caption text. In the final .Rd documentation output, this caption is formatted as a \\subsection{} within the main \\section{Examples}{}."
+    "text": "@caption - Example Title\nPurpose: Sets the title for an individual example.\nHow it Works: Each @caption starts a new example block; the text that follows becomes the title.\nProcessing: Formatted as a \\subsection{} inside the main \\section{Examples}{} in the final .Rd file."
   },
   {
     "objectID": "phuse-admiral-roclets-pres.html#info---example-description",
     "href": "phuse-admiral-roclets-pres.html#info---example-description",
     "title": "Time to Roclet",
     "section": "@info - Example Description",
-    "text": "@info - Example Description\nPurpose: Offers additional descriptive text or context for an example, explaining its demonstration or specific considerations.\nHow it Works: It is placed after an @caption and before an @code tag, containing explanatory text for that specific example.\nProcessing: The transform_examplesx() function appends this descriptive text to the current example block’s contents, integrating it into the overall example documentation."
+    "text": "@info - Example Description\nPurpose: Adds a short description or context for a specific example.\nHow it Works: Placed after @caption and before @code to explain what the example demonstrates.\nProcessing: The descriptive text is added to the example block and included in the final documentation."
   },
   {
     "objectID": "phuse-admiral-roclets-pres.html#code---executable-example-code",
     "href": "phuse-admiral-roclets-pres.html#code---executable-example-code",
     "title": "Time to Roclet",
     "section": "@code - Executable Example Code",
-    "text": "@code - Executable Example Code\nPurpose: Provides the actual R code for an example, which is executed during the R package check, and its output is included in the documentation.\nHow it Works: The R code follows the @code tag. It can include an optional [expected_cnds = \"warning\"] argument to specify anticipated conditions like warnings or errors without causing check failures.\nProcessing: transform_examplesx() extracts the code and any expected_cnds options, then calls execute_example(). This function runs the code in a controlled environment, captures console output, messages, warnings, and errors. Unexpected conditions (not listed in expected_cnds) lead to an error and an R CMD check failure, ensuring examples are functional and correct. The captured code and its output are then formatted and integrated into the example’s contents."
+    "text": "@code - Executable Example Code\nPurpose: Contains the actual R code that gets run and displayed in the docs.\nHow it Works: The code following @code is executed; use [expected_cnds = \"warning\"] to flag expected warnings or errors.\nProcessing: Code runs in a controlled environment via execute_example(); unexpected conditions cause an R CMD check failure, ensuring examples actually work."
   },
   {
     "objectID": "phuse-admiral-roclets-pres.html#conclusion",
