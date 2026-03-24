@@ -28,46 +28,46 @@
     "text": "So at the end of 20 minutes…\nI hope you walk away with:\n\nHow R package documentation is created.\nHow admiral package documentation is created.\nBetter documentation means users are happy but also allows AI/LLMs to easier understand and harvest information from your R package."
   },
   {
-    "objectID": "phuse-admiral-roclets-pres.html#what-is-the-admiral-r-package",
-    "href": "phuse-admiral-roclets-pres.html#what-is-the-admiral-r-package",
+    "objectID": "phuse-admiral-roclets-pres.html#what-is-admiral",
+    "href": "phuse-admiral-roclets-pres.html#what-is-admiral",
     "title": "Time to Roclet",
-    "section": "What is the admiral R package?",
-    "text": "What is the admiral R package?\n\nTo provide an open source, modularized toolbox that enables the pharmaceutical programming community to develop ADaM datasets in R.\nThe package is available from CRAN and can be installed with: install.packages(\"admiral\")\nUsers guides for doing BDS, OCCDS, TTE, ADSL, ICE, Date/Times and more available.\nA sea of documentation!!"
+    "section": "What is {admiral}?",
+    "text": "What is {admiral}?\n\nProvides an open source, modularized toolbox that enables the pharmaceutical programming community to develop ADaM datasets in R.\nThe package is available from CRAN and can be installed with: install.packages(\"admiral\")\nUsers guides for doing BDS, OCCDS, TTE, ADSL, ICE, Date/Times and more available.\nA sea of function documentation!!"
   },
   {
-    "objectID": "phuse-admiral-roclets-pres.html#introduction-a-sea-documentation",
-    "href": "phuse-admiral-roclets-pres.html#introduction-a-sea-documentation",
+    "objectID": "phuse-admiral-roclets-pres.html#introduction-a-sea-of-documentation",
+    "href": "phuse-admiral-roclets-pres.html#introduction-a-sea-of-documentation",
     "title": "Time to Roclet",
-    "section": "Introduction: A Sea Documentation",
-    "text": "Introduction: A Sea Documentation\n\nDetailed argument definitions and inline examples aid understanding complex functions.\nIn {admiral}, top-notch documentation is a priority.\nProblem: As number of functions and complexity of functions grew, documentation became unwieldy and hard to navigate.\nSolution: Extended {roxygen2} package’s roclets to better display and curate examples.\nThis presentation explores the technical details and positive impact on {admiral}’s function examples."
+    "section": "Introduction: A Sea of Documentation",
+    "text": "Introduction: A Sea of Documentation\n\nDetailed argument definitions and inline examples aid understanding complex functions.\nIn {admiral}, we love lots of documentation.\nProblem: As number of functions and complexity of functions grew, documentation examples became unwieldy and hard to navigate.\nSolution: Extended {roxygen2} package’s roclets to better display and curate examples.\nThis presentation explores the technical details and positive impact on {admiral}’s function examples."
   },
   {
     "objectID": "phuse-admiral-roclets-pres.html#r-packages-the-foundation-of-the-r-ecosystem",
     "href": "phuse-admiral-roclets-pres.html#r-packages-the-foundation-of-the-r-ecosystem",
     "title": "Time to Roclet",
     "section": "R Packages: The Foundation of the R Ecosystem",
-    "text": "R Packages: The Foundation of the R Ecosystem\n\nR packages bundle code, data, documentation, and tests in a standardized format.\nThey facilitate code sharing and reuse, expanding R’s functionality.\nKey components:\n\nR functions in R/ directory. Documentation in man/\nDocumentation using roxygen2 comments in .R produce the .Rd files.\nFew other folders and needed files - Check out: https://r-pkgs.org/"
+    "text": "R Packages: The Foundation of the R Ecosystem\n\nR packages bundle code, data, documentation, and tests in a standardized format.\nThey facilitate code sharing and reuse, expanding R’s functionality.\nKey components:\n\nR functions in R/ directory. Documentation in man/\nDocumentation using roxygen comments in .R produce the .Rd files.\nFew other folders and needed files - Check out: https://r-pkgs.org/"
   },
   {
     "objectID": "phuse-admiral-roclets-pres.html#roxygen2-streamlining-r-docs",
     "href": "phuse-admiral-roclets-pres.html#roxygen2-streamlining-r-docs",
     "title": "Time to Roclet",
-    "section": "roxygen2: Streamlining R Docs",
-    "text": "roxygen2: Streamlining R Docs\n\nThe roxygen2 R package simplifies documentation within R packages.\nDevelopers write documentation directly alongside function definitions using #' comments.\nBenefits:\n\nKeeps code and documentation co-located, making updates efficient.\nAutomatically generates .Rd files (standard R documentation) from comments.\n\nThis system significantly reduces effort, enhancing user understanding of functions.\nCheck out: https://roxygen2.r-lib.org/"
+    "section": "{roxygen2}: Streamlining R Docs",
+    "text": "{roxygen2}: Streamlining R Docs\n\nThe roxygen2 R package simplifies documentation within R packages.\nDevelopers write documentation directly alongside function definitions using #' comments.\nBenefits:\n\nKeeps code and documentation co-located, making updates efficient.\nAutomatically generates .Rd files (standard R documentation) from comments.\n\nThis system significantly reduces effort, enhancing user understanding of functions.\nCheck out: https://roxygen2.r-lib.org/"
   },
   {
-    "objectID": "phuse-admiral-roclets-pres.html#roxygen-in-an-.r-file",
-    "href": "phuse-admiral-roclets-pres.html#roxygen-in-an-.r-file",
+    "objectID": "phuse-admiral-roclets-pres.html#roxygen-comments-in-an-.r-file",
+    "href": "phuse-admiral-roclets-pres.html#roxygen-comments-in-an-.r-file",
     "title": "Time to Roclet",
-    "section": "Roxygen in an .R file",
-    "text": "Roxygen in an .R file\nHere’s a brief example of a function add_numbers() with its roxygen documentation:\n\n#' Add two numbers together.\n#'\n#' This function takes two numeric inputs and returns their sum.\n#'\n#' @param x A numeric value, the first number.\n#' @param y A numeric value, the second number.\n#' @return The sum of `x` and `y`.\n#' @examples\n#' add_numbers(5, 3)\n#' add_numbers(10, -2)\nadd_numbers &lt;- function(x, y) {\n  x + y\n}"
+    "section": "Roxygen comments in an .R file",
+    "text": "Roxygen comments in an .R file\nHere’s a brief example of a function add_numbers() with its roxygen documentation:\n\n#' Add two numbers together.\n#'\n#' This function takes two numeric inputs and returns their sum.\n#'\n#' @param x A numeric value, the first number.\n#' @param y A numeric value, the second number.\n#' @return The sum of `x` and `y`.\n#' @examples\n#' add_numbers(5, 3)\n#' add_numbers(10, -2)\nadd_numbers &lt;- function(x, y) {\n  x + y\n}"
   },
   {
-    "objectID": "phuse-admiral-roclets-pres.html#documentation-structure---.rd",
-    "href": "phuse-admiral-roclets-pres.html#documentation-structure---.rd",
+    "objectID": "phuse-admiral-roclets-pres.html#documentation-files-.rd",
+    "href": "phuse-admiral-roclets-pres.html#documentation-files-.rd",
     "title": "Time to Roclet",
-    "section": "Documentation Structure - .Rd",
-    "text": "Documentation Structure - .Rd\n\n% Generated by roxygen2: do not edit by hand\n% Please edit documentation in R/add_numbers.R\n\\name{add_numbers}\n\\alias{add_numbers}\n\\title{Add two numbers together.}\n\\usage{\nadd_numbers(x, y)\n}\n\\arguments{\n\\item{x}{A numeric value, the first number.\n\n\\describe{\n\\item{Default value}{none}\n}}\n\n\\item{y}{A numeric value, the second number.\n\n\\describe{\n\\item{Default value}{none}\n}}\n}\n\\value{\nThe sum of \\code{x} and \\code{y}.\n}\n\\description{\nThis function takes two numeric inputs and returns their sum.\n}\n\\examples{\nadd_numbers(5, 3)\nadd_numbers(10, -2)\n}"
+    "section": "Documentation Files: .Rd",
+    "text": "Documentation Files: .Rd\n\n% Generated by roxygen2: do not edit by hand\n% Please edit documentation in R/add_numbers.R\n\\name{add_numbers}\n\\alias{add_numbers}\n\\title{Add two numbers together.}\n\\usage{\nadd_numbers(x, y)\n}\n\\arguments{\n\\item{x}{A numeric value, the first number.\n\n\\describe{\n\\item{Default value}{none}\n}}\n\n\\item{y}{A numeric value, the second number.\n\n\\describe{\n\\item{Default value}{none}\n}}\n}\n\\value{\nThe sum of \\code{x} and \\code{y}.\n}\n\\description{\nThis function takes two numeric inputs and returns their sum.\n}\n\\examples{\nadd_numbers(5, 3)\nadd_numbers(10, -2)\n}"
   },
   {
     "objectID": "phuse-admiral-roclets-pres.html#dont-touch",
