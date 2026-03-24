@@ -43,7 +43,7 @@ I hope you walk away with:
 
 * How R documentation is created.
 * How admiral enhanced its documentation to help its users.
-* Better documentation means users are happy but also also AI/LLMs to easier understand
+* Better documentation means users are happy but also allows AI/LLMs to easier understand
 and harvest information from your R package.
 
 ## What is the `admiral` R package?
