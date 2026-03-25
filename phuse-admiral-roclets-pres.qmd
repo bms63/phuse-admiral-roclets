@@ -227,7 +227,7 @@ add_numbers(10, -2)
 * A nice linkable title
 * Description of example 
 * Right hand side has navigable example
-* [`derive_vars_dt()`](https://pharmaverse.github.io/admiral/cran-release/reference/derive_vars_dt.html) Examples are not navigable on right hand side 
+* [`derive_vars_dt()`](https://pharmaverse.github.io/admiral/cran-release/reference/derive_vars_dt.html) Examples are **NOW** navigable on right hand side 
   {{< qrcode https://pharmaverse.github.io/admiral/cran-release/reference/derive_vars_dt.html >}}  
 
 
