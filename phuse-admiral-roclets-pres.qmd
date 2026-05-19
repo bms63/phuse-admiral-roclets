@@ -361,10 +361,6 @@ This example shows that the \code{letter} argument does not affect the output.
 
 * In this age of AI - high quality documentation will be key to a software products long-term usefulness.
 
-## Question
-
-What is the name of the documentation package that could be extended to address admiral's needs?
-
 ## Resources
 
 :::: {.columns}
