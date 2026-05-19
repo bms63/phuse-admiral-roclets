@@ -5,7 +5,7 @@ author: "Ben Straub (GSK, Philadelphia, United States)"
 format:
   revealjs:
     footer: "[https://bms63.github.io/phuse-admiral-roclets/](https://bms63.github.io/phuse-admiral-roclets/)"
-    theme: solarized
+    theme: dracula
     code-block-max-height: "400px" # Makes code blocks scrollable if content exceeds this height
     scrollable: true # Enables vertical scrolling for general slide content if it overflows
     auto-stretch: false
@@ -37,18 +37,9 @@ editor: source
 * `{admiral}` R package and its documentation
 * How `{admiral}` used `{roxygen2}` extension abilities to solve its problem
 
-## So at the end of 20 minutes...
-
-I hope you walk away with:
-
-* How R documentation is created.
-* How admiral enhanced its documentation to help its users.
-* Better documentation means users are happy but also also AI/LLMs to easier understand
-and harvest information from your R package.
-
 ## What is the `admiral` R package?
 
-* To provide an open source, modularized toolbox that enables the pharmaceutical programming community to develop ADaM datasets in R.
+* Provides an open source, modularized toolbox that enables the pharmaceutical programming community to develop ADaM datasets in R.
 
 * The package is available from CRAN and can be installed with:
 `install.packages("admiral")`
@@ -57,7 +48,7 @@ and harvest information from your R package.
 
 * A sea of documentation!!
 
-## Introduction: A Sea Documentation {.smaller}
+## Problem: A Sea of Documentation {.smaller}
 
 - Detailed argument definitions and inline examples aid understanding complex functions.
 - In `{admiral}`, top-notch documentation is a priority.
@@ -157,7 +148,7 @@ add_numbers(10, -2)
 
 ::: {.incremental}
   * 📝 Write R code in `.R` files
-  * ✍️ Add `#'` roxygen comments above functions objects
+  * ✍️ Add `#'` roxygen comments above function objects
   * 🏷️ Use roxygen tags `@param`, `@return`, `@examples`, etc:
   * ▶️ Run `devtools::document()` or Ctrl/Cmd + Shift + D
   * ⚙️ `{roxygen2}`processes `.R` files extracts comments & tags
