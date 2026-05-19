@@ -21,13 +21,6 @@
     "text": "The next 20 minutes…\n\nBrief intro to the problem. Hint: documentation\nInfrastructure behind R package documentation\n{admiral} R package and its documentation\nHow {admiral} used {roxygen2} extension abilities to solve its problem"
   },
   {
-    "objectID": "phuse-admiral-roclets-pres.html#so-at-the-end-of-20-minutes",
-    "href": "phuse-admiral-roclets-pres.html#so-at-the-end-of-20-minutes",
-    "title": "Time to Roclet",
-    "section": "So at the end of 20 minutes…",
-    "text": "So at the end of 20 minutes…\nI hope you walk away with:\n\nHow R package documentation is created.\nHow admiral package documentation is created.\nBetter documentation means users are happy but also allows AI/LLMs to easier understand and harvest information from your R package."
-  },
-  {
     "objectID": "phuse-admiral-roclets-pres.html#what-is-admiral",
     "href": "phuse-admiral-roclets-pres.html#what-is-admiral",
     "title": "Time to Roclet",
@@ -35,11 +28,11 @@
     "text": "What is {admiral}?\n\nProvides an open source, modularized toolbox that enables the pharmaceutical programming community to develop ADaM datasets in R.\nThe package is available from CRAN and can be installed with: install.packages(\"admiral\")\nUsers guides for doing BDS, OCCDS, TTE, ADSL, ICE, Date/Times and more available.\nA sea of function documentation!!"
   },
   {
-    "objectID": "phuse-admiral-roclets-pres.html#introduction-a-sea-of-documentation",
-    "href": "phuse-admiral-roclets-pres.html#introduction-a-sea-of-documentation",
+    "objectID": "phuse-admiral-roclets-pres.html#problem-a-sea-of-documentation",
+    "href": "phuse-admiral-roclets-pres.html#problem-a-sea-of-documentation",
     "title": "Time to Roclet",
-    "section": "Introduction: A Sea of Documentation",
-    "text": "Introduction: A Sea of Documentation\n\nDetailed argument definitions and inline examples aid understanding complex functions.\nIn {admiral}, we love lots of documentation.\nProblem: As number of functions and complexity of functions grew, documentation examples became unwieldy and hard to navigate.\nSolution: Extended {roxygen2} package’s roclets to better display and curate examples.\nThis presentation explores the technical details and positive impact on {admiral}’s function examples."
+    "section": "Problem: A Sea of Documentation",
+    "text": "Problem: A Sea of Documentation\n\nDetailed argument definitions and inline examples aid understanding complex functions.\nIn {admiral}, we love lots of documentation.\nProblem: As number of functions and complexity of functions grew, documentation examples became unwieldy and hard to navigate.\nSolution: Extended {roxygen2} package’s roclets to better display and curate examples.\nThis presentation explores the technical details and positive impact on {admiral}’s function examples."
   },
   {
     "objectID": "phuse-admiral-roclets-pres.html#r-packages-the-foundation-of-the-r-ecosystem",
@@ -81,7 +74,7 @@
     "href": "phuse-admiral-roclets-pres.html#lets-recap",
     "title": "Time to Roclet",
     "section": "Let’s recap!",
-    "text": "Let’s recap!\n\n📝 Write R code in .R files\n✍️ Add #' roxygen comments above functions objects\n🏷️ Use roxygen tags @param, @return, @examples, etc:\n▶️ Run devtools::document() or Ctrl/Cmd + Shift + D\n⚙️ {roxygen2}processes .R files extracts comments & tags\n📄 .Rd files auto-generated in man/ directory\n📚 R help system displays documentation to users"
+    "text": "Let’s recap!\n\n📝 Write R code in .R files\n✍️ Add #' roxygen comments above function objects\n🏷️ Use roxygen tags @param, @return, @examples, etc:\n▶️ Run devtools::document() or Ctrl/Cmd + Shift + D\n⚙️ {roxygen2}processes .R files extracts comments & tags\n📄 .Rd files auto-generated in man/ directory\n📚 R help system displays documentation to users"
   },
   {
     "objectID": "phuse-admiral-roclets-pres.html#render-in-r-help-file-and-pkgdown",
@@ -173,13 +166,6 @@
     "title": "Time to Roclet",
     "section": "Conclusion",
     "text": "Conclusion\n\nThe admiral R package faced challenges with unwieldy function documentation due to complex and numerous examples.\nTo address this, admiral extended roxygen2’s roclets by introducing custom Roxygen tags: @examplesx, @caption, @info, and @code.\nThese custom tags enable a structured, user-friendly presentation of examples, providing scaffolding for complex function usage.\nThis innovation significantly improved the overall user experience and the quality of admiral’s function documentation.\nIn this age of AI - high quality documentation will be key to a software products long-term usefulness."
-  },
-  {
-    "objectID": "phuse-admiral-roclets-pres.html#question",
-    "href": "phuse-admiral-roclets-pres.html#question",
-    "title": "Time to Roclet",
-    "section": "Question",
-    "text": "Question\nWhat is the name of the documentation package that could be extended to address admiral’s needs?"
   },
   {
     "objectID": "phuse-admiral-roclets-pres.html#resources",
